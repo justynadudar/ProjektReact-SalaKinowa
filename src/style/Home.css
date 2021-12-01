@@ -1,0 +1,34 @@
+.Navbar {
+    background-color: #061152;
+    height: 10vh;
+    padding-left: 5%;
+    padding-right: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.linkHome {
+    align-items: flex-start;
+    flex-grow: 8;
+    align-self: center;
+    text-decoration: none;
+    color: hsla(0, 0%, 100%, .75);
+}
+
+.link {
+    align-items: flex-end;
+    text-align: center;
+    flex-grow: 1;
+    align-self: center;
+    text-decoration: none;
+    color: hsla(0, 0%, 100%, .75);
+}
+
+.link:hover {
+    color: white;
+}
+
+.linkHome:hover {
+    color: white;
+}
