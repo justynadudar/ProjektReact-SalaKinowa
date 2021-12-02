@@ -40,9 +40,7 @@ app.get("/orders/:id", (req, res) => {
             return;
         }
         var orders = JSON.parse(ordersJson);
-        var order = orders.find(
-            (ordertmp) => ordertmp.orderId == req.params.id
-        );
+        var order = orders.find((ordertmp) => ordertmp.id == req.params.id);
         if (!order) {
             console.log("Can't find order with id: " + req.params.id);
             res.status(500).send("Cant find order with id: " + req.params.id);
@@ -62,9 +60,7 @@ app.post("/orders", (req, res) => {
             return;
         }
         var orders = JSON.parse(ordersJson);
-        var order = orders.find(
-            (ordertmp) => ordertmp.id == req.body.id
-        );
+        var order = orders.find((ordertmp) => ordertmp.id == req.body.id);
         if (!order) {
             orders.push(req.body);
             var newList = JSON.stringify(orders);
@@ -81,9 +77,7 @@ app.post("/orders", (req, res) => {
                 }
             });
         } else {
-            console.log(
-                "Order by id = " + req.body.id + " already exists"
-            );
+            console.log("Order by id = " + req.body.id + " already exists");
             res.status(500).send(
                 "Order by id = " + req.body.id + " already exists"
             );
@@ -102,21 +96,15 @@ app.put("/orders/:id", (req, res) => {
             return;
         }
         var orders = JSON.parse(ordersJson);
-        var orderBody = orders.find(
-            (ordertmp) => ordertmp.orderId == req.body.orderId
-        );
-        if (orderBody && orderBody.orderId != req.params.id) {
-            console.log(
-                "Order by id = " + orderBody.orderId + " already exists"
-            );
+        var orderBody = orders.find((ordertmp) => ordertmp.id == req.body.id);
+        if (orderBody && orderBody.id != req.params.id) {
+            console.log("Order by id = " + orderBody.id + " already exists");
             res.status(500).send(
-                "Order by id = " + orderBody.orderId + " already exists"
+                "Order by id = " + orderBody.id + " already exists"
             );
             return;
         }
-        var order = orders.find(
-            (ordertmp) => ordertmp.orderId == req.params.id
-        );
+        var order = orders.find((ordertmp) => ordertmp.id == req.params.id);
         if (!order) {
             orders.push(req.body);
             var newList = JSON.stringify(orders);
@@ -133,13 +121,13 @@ app.put("/orders/:id", (req, res) => {
                     res.status(201).send(req.body);
                     console.log(
                         "Successfully wrote file orders.json and added new order with id = " +
-                            req.body.orderId
+                            req.body.id
                     );
                 }
             });
         } else {
             for (var i = 0; i < orders.length; i++) {
-                if (orders[i].orderId == order.orderId) {
+                if (orders[i].id == order.id) {
                     orders[i] = req.body;
                 }
             }
@@ -174,7 +162,7 @@ app.delete("/orders/:id", (req, res) => {
         }
         var orders = JSON.parse(ordersJson);
         var orderIndex = orders.findIndex(
-            (ordertmp) => ordertmp.orderId == req.params.id
+            (ordertmp) => ordertmp.id == req.params.id
         );
         if (orderIndex != -1) {
             orders.splice(orderIndex, 1);
