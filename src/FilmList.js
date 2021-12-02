@@ -45,23 +45,27 @@ class FilmList  extends React.Component {
       //   .then(data => this.setState({dane: data}));
         
       // }
+      
 
       async add(){
-          await fetch(`http://localhost:3001/orders`, {
+        const sth = {
+          "id": 3,
+          "title": "John Smith",
+          "duration": 110,
+          "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/20/22/vintage-1706242_960_720.jpg",
+          "dates": [],
+          "cinemaHallId": null
+      }
+      console.log(sth);
+          await fetch('http://localhost:3001/orders', {
             method:'POST',
             headers:{
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                        "id": "3",
-                        "title": "John Smith",
-                        "duration": "110",
-                        "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/20/22/vintage-1706242_960_720.jpg",
-                        "dates": "[]",
-                        "cinemaHallId": "null"
-                    })
-          }).then(response => response.json())
+            body: JSON.stringify(sth)
+          }).then(
+            response => response.json())
           .then(() => {
               alert("Dodano użytkownika");
           }).catch((error) => {

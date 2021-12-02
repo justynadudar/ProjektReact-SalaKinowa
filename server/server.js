@@ -63,7 +63,7 @@ app.post("/orders", (req, res) => {
         }
         var orders = JSON.parse(ordersJson);
         var order = orders.find(
-            (ordertmp) => ordertmp.orderId == req.body.orderId
+            (ordertmp) => ordertmp.id == req.body.id
         );
         if (!order) {
             orders.push(req.body);
@@ -76,16 +76,16 @@ app.post("/orders", (req, res) => {
                     res.status(201).send(req.body);
                     console.log(
                         "Successfully wrote file orders.json and added new order with id = " +
-                            req.body.orderId
+                            req.body.id
                     );
                 }
             });
         } else {
             console.log(
-                "Order by id = " + req.body.orderId + " already exists"
+                "Order by id = " + req.body.id + " already exists"
             );
             res.status(500).send(
-                "Order by id = " + req.body.orderId + " already exists"
+                "Order by id = " + req.body.id + " already exists"
             );
             return;
         }
