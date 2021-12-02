@@ -1,4 +1,3 @@
-import "./App.css";
 import Repertoire from "./Repertoire";
 import Home from "./Home";
 import FilmList from "./FilmList";
