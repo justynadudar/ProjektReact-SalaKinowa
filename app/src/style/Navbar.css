@@ -23,14 +23,14 @@
     padding: 12px 20px;
     border-bottom: 2px solid transparent;
     text-decoration: none;
-    color: red;
+    color: #bbb;
     font-size: 20px;
     letter-spacing: 1.5px;
     transition: 0.2s;
 }
 
 .Navbar ul li a.active {
-    color: blue;
+    color: white;
 }
 
 .Navbar ul li a:hover {
