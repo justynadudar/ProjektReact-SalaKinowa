@@ -4,7 +4,8 @@ import FilmList from "./FilmList";
 import CinemaHallList from "./CinemaHallList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
+import { getData, newFilm } from "./actions";
 
 function App() {
     return (

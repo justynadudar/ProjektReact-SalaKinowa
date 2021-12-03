@@ -8,10 +8,13 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+
 const store = createStore(
     reducers,
     composeWithDevTools(applyMiddleware(thunk))
 );
+
+
 
 ReactDOM.render(
     <React.StrictMode>

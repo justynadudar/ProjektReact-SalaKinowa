@@ -2,7 +2,7 @@ import React from "react";
 import "./style/Repertoire.css";
 import Home from "./Home.js";
 import { connect } from "react-redux";
-import { fetchData } from "./actions";
+import { getData } from "./actions";
 
 class Repertoire extends React.Component {
     constructor(props) {
@@ -11,20 +11,10 @@ class Repertoire extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchData();
-        this.setState({ data: this.props.dataReducer.data });
+        this.props.getData();
+        console.log(this.props.films.data)
+        this.setState({ data: this.props.films.data });
     }
-
-    // componentDidMount() {
-    //     fetch("http://localhost:3001/orders", {
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             Accept: "application/json",
-    //         },
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => this.setState({ dane: data }));
-    // }
 
     render() {
         const { data } = this.state;
@@ -35,7 +25,7 @@ class Repertoire extends React.Component {
                 <div className="repertoire">
                     {!data.loading
                         ? data.map((element) => (
-                              <div className="showing">
+                              <div  key={element.id} className="showing">
                                   <img
                                       src={element.imgUrl}
                                       alt={element.title}
@@ -60,7 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchData: () => dispatch(fetchData()),
+        getData: () => dispatch(getData()),
     };
 };
 
