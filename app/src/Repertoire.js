@@ -12,8 +12,8 @@ class Repertoire extends React.Component {
 
     componentDidMount() {
         this.props.getData();
-        console.log(this.props.films.data)
-        this.setState({ data: this.props.films.data });
+        console.log(this.props.films);
+        this.setState({ data: this.props.films });
     }
 
     render() {
@@ -23,9 +23,9 @@ class Repertoire extends React.Component {
             <div>
                 <Home />
                 <div className="repertoire">
-                    {!data.loading
-                        ? data.map((element) => (
-                              <div  key={element.id} className="showing">
+                    {data.loaded
+                        ? data.data.map((element) => (
+                              <div key={element.id} className="showing">
                                   <img
                                       src={element.imgUrl}
                                       alt={element.title}

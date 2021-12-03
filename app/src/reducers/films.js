@@ -28,9 +28,9 @@ export default function films(state = initialState, action) {
                 data: [],
                 error: action.payload,
             };
-        case 'SHOW_ALL':
+        case "SHOW_ALL":
             new_state = Object.assign({}, state);
-            new_state.id = action.data[action.data.length-1].id + 1; 
+            new_state.id = action.data[action.data.length - 1].id + 1;
             new_state.data = action.data;
             new_state.loaded = true;
             return new_state;
@@ -38,12 +38,10 @@ export default function films(state = initialState, action) {
         case "ADD_FILM":
             alert("jestem");
             return Object.assign({}, state, {
-              
                 id: state.id + 1,
-                data:[...state.data, action.new_film]});
+                data: [...state.data, action.new_film],
+            });
         default:
             return state;
     }
-};
-
-
+}
