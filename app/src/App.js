@@ -12,7 +12,7 @@ function App({ getData, newFilm, films }) {
             <Route exact path="/" component={Home} />
             <Route
                 path="/repertoire"
-                render={() => <Repertoire getData={getData} films={films} />}
+                render={() => <Repertoire getData={getData} newFilm={newFilm} films={films} />}
             />
             <Route
                 path="/films"

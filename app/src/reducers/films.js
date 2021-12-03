@@ -11,20 +11,20 @@ export default function films(state = initialState, action) {
     switch (action.type) {
         case "FETCH_DATA_REQUEST":
             return {
-                loading: true,
+                loaded: true,
                 data: [],
                 error: "",
             };
         case "FETCH_DATA_SUCCESS":
             alert("sukces!");
             return {
-                loading: false,
+                loaded: false,
                 data: action.payload,
                 error: "",
             };
         case "FETCH_DATA_FAILURE":
             return {
-                loading: false,
+                loaded: false,
                 data: [],
                 error: action.payload,
             };
