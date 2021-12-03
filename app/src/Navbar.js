@@ -6,7 +6,9 @@ function Navbar() {
         <nav className="Navbar">
             <ul>
                 <li>
-                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/" exact>
+                        Home
+                    </NavLink>
                 </li>
                 <li>
                     <NavLink to="/repertoire">Repertuar</NavLink>
