@@ -10,22 +10,20 @@ function App({ getData, newFilm, films }) {
     return (
         <Router>
             <Navbar />
-            <Switch>
                 <Route path="/" component={Home} />
                 <Route
-                    path="/repertoire"
-                    render={() => {
-                        <Repertoire getData={getData} films={films} />;
-                    }}
+                   exact path="/repertoire"
+                    render={() => 
+                        <Repertoire getData={getData} films={films} />
+                    }
                 />
                 <Route
                     path="/films"
-                    render={() => {
-                        <FilmsList getData={getData} newFilm={newFilm} />;
-                    }}
+                    render={() => 
+                        <FilmsList getData={getData} newFilm={newFilm} films={films} />
+                    }
                 />
                 <Route path="/cinemahalls" component={CinemaHallList} />
-            </Switch>
         </Router>
     );
 }
