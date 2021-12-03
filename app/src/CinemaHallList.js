@@ -1,16 +1,5 @@
-import Home from './Home.js';
-
 function CinemaHallList() {
-  
-   
-        
-        return (
-          
-          <div>
-            <Home/>
-            
-          </div>
-        );
-      }
+    return <div></div>;
+}
 
 export default CinemaHallList;
