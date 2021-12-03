@@ -30,7 +30,7 @@
 }
 
 .Navbar ul li a.active {
-    color: white;
+    color: blue;
 }
 
 .Navbar ul li a:hover {
