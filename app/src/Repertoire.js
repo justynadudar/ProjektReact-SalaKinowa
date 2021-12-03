@@ -1,8 +1,5 @@
 import React from "react";
 import "./style/Repertoire.css";
-import Home from "./Home.js";
-import { connect } from "react-redux";
-import { getData } from "./actions";
 
 class Repertoire extends React.Component {
     constructor(props) {
@@ -12,7 +9,7 @@ class Repertoire extends React.Component {
 
     componentDidMount() {
         this.props.getData();
-        console.log(this.props.films);
+        console.log(this.state.data);
         this.setState({ data: this.props.films });
     }
 
@@ -21,7 +18,6 @@ class Repertoire extends React.Component {
 
         return (
             <div>
-                <Home />
                 <div className="repertoire">
                     {data.loaded
                         ? data.data.map((element) => (
@@ -44,14 +40,4 @@ class Repertoire extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return { ...state };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getData: () => dispatch(getData()),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Repertoire);
+export default Repertoire;

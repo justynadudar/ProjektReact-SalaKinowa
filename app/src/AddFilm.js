@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style/AddFilm.css";
 
 function AddFilm({ handleClick }) {
     let [textInput, setTextInput] = useState("");
@@ -9,10 +10,33 @@ function AddFilm({ handleClick }) {
     }
 
     return (
-        <div>
-            <input type="text" value={textInput} onChange={changeText} />
-            <input type="number" />
-            <button onClick={() => handleClick(textInput)}>Dodaj</button>
+        <div className="AddFilm">
+            <div>
+                {/* <input type="text" value={textInput} onChange={changeText} /> */}
+                <h2>Dodaj film:</h2>
+                <label for="title">Tytuł:</label>
+                <input
+                    type="text"
+                    name="title"
+                    value={textInput}
+                    onChange={changeText}
+                />
+                <label for="duration">Czas trwania:</label>
+                <input
+                    type="number"
+                    name="duration"
+                    value={textInput}
+                    onChange={changeText}
+                />
+                <label for="duration">Adres url plakatu:</label>
+                <input
+                    type="number"
+                    name="duration"
+                    value={textInput}
+                    onChange={changeText}
+                />
+                <button onClick={() => handleClick(textInput)}>Dodaj</button>
+            </div>
         </div>
     );
 }

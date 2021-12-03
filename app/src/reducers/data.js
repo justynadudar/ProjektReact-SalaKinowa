@@ -1,8 +1,8 @@
-const initialState = {
-    loading: false,
-    data: [],
-    error: "",
-};
+// const initialState = {
+//     loading: false,
+//     data: [],
+//     error: "",
+// };
 
 // const dataReducer = (state = initialState, action) => {
 //     switch (action.type) {

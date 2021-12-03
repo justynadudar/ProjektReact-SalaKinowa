@@ -4,18 +4,28 @@ import FilmsList from "./FilmsList";
 import Navbar from "./Navbar";
 import CinemaHallList from "./CinemaHallList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Routes } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
-function App() {
+function App({ getData, newFilm, films }) {
     return (
         <Router>
             <Navbar />
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route exact path="/repertoire" element={<Repertoire />} />
-                <Route exact path="/films" element={<FilmsList />} />
-                <Route exact path="/cinemahalls" element={<CinemaHallList />} />
-            </Routes>
+            <Switch>
+                <Route path="/" component={Home} />
+                <Route
+                    path="/repertoire"
+                    render={() => {
+                        <Repertoire getData={getData} films={films} />;
+                    }}
+                />
+                <Route
+                    path="/films"
+                    render={() => {
+                        <FilmsList getData={getData} newFilm={newFilm} />;
+                    }}
+                />
+                <Route path="/cinemahalls" component={CinemaHallList} />
+            </Switch>
         </Router>
     );
 }

@@ -1,11 +1,7 @@
 import "./style/FilmsList.css";
 import Film from "./Film";
 import AddFilm from "./AddFilm.js";
-import Home from "./Home.js";
 import React from "react";
-import { connect } from "react-redux";
-import { newFilm } from "./actions";
-import { getData } from "./actions";
 
 class FilmsList extends React.Component {
     constructor(props) {
@@ -14,6 +10,7 @@ class FilmsList extends React.Component {
 
     componentDidMount() {
         this.props.getData();
+        console.log(this.props.data);
         this.setState({ data: this.props.films.data });
     }
 
@@ -48,18 +45,7 @@ class FilmsList extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return { ...state };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        newFilm: (new_film) => dispatch(newFilm({ data: new_film })),
-        getData: () => dispatch(getData()),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilmsList);
+export default FilmsList;
 
 // async add() {
 //     const sth = {
