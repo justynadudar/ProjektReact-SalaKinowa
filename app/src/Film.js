@@ -2,7 +2,7 @@ import "./style/Film.css";
 
 function Film({ film }) {
     return (
-        <div class="Film">
+        <div className="Film">
             <div className="imageHolder">
                 <img
                     src="https://nerdheim.pl/wp-content/uploads/2019/11/joker_0.jpg"

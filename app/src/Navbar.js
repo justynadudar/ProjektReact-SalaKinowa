@@ -15,9 +15,7 @@ function Navbar() {
                     <NavLink to="/films">Filmy</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/cinemahalls" className="link">
-                        Sale
-                    </NavLink>
+                    <NavLink to="/cinemahalls">Sale</NavLink>
                 </li>
             </ul>
         </nav>

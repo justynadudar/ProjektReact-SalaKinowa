@@ -14,21 +14,21 @@ function AddFilm({ handleClick }) {
             <div>
                 {/* <input type="text" value={textInput} onChange={changeText} /> */}
                 <h2>Dodaj film:</h2>
-                <label for="title">Tytuł:</label>
+                <label htmlFor="title">Tytuł:</label>
                 <input
                     type="text"
                     name="title"
                     value={textInput}
                     onChange={changeText}
                 />
-                <label for="duration">Czas trwania:</label>
+                <label htmlFor="duration">Czas trwania:</label>
                 <input
                     type="number"
                     name="duration"
                     value={textInput}
                     onChange={changeText}
                 />
-                <label for="duration">Adres url plakatu:</label>
+                <label htmlFor="duration">Adres url plakatu:</label>
                 <input
                     type="number"
                     name="duration"
