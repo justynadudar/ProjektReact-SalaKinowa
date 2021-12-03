@@ -11,17 +11,17 @@ class FilmsList extends React.Component {
 
     componentDidMount() {
         this.props.getData();
-        console.log(this.props.data);
         this.setState({ data: this.props.films.data });
     }
 
-    add(title) {
+    add(title, duration, url) {
         const id = this.props.films.id;
+        console.log(title, duration, url);
         const sth = {
             id: id,
             title: title,
-            duration: 130,
-            imgUrl: "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
+            duration: duration,
+            imgUrl: url,
             dates: [],
             cinemaHallId: 2,
         };
@@ -30,7 +30,7 @@ class FilmsList extends React.Component {
 
     render() {
         const { films } = this.props;
-        console.log(films.data);
+
         return (
             <div className="filmList">
                 <AddFilm handleClick={(title) => this.add(title)} />

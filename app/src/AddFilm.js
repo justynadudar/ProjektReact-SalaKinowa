@@ -3,16 +3,24 @@ import "./style/AddFilm.css";
 
 function AddFilm({ handleClick }) {
     let [textInput, setTextInput] = useState("");
-    //let [numberInput, setNumberInput] = useState(0);
+    let [urlInput, setUrlInput] = useState("");
+    let [numberInput, setNumberInput] = useState("");
 
     function changeText(e) {
         setTextInput(e.target.value);
     }
 
+    function changeNumber(e) {
+        setNumberInput(e.target.value);
+    }
+
+    function changeUrl(e) {
+        setUrlInput(e.target.value);
+    }
+
     return (
         <div className="AddFilm">
             <div>
-                {/* <input type="text" value={textInput} onChange={changeText} /> */}
                 <h2>Dodaj film:</h2>
                 <label htmlFor="title">Tytuł:</label>
                 <input
@@ -25,17 +33,23 @@ function AddFilm({ handleClick }) {
                 <input
                     type="number"
                     name="duration"
-                    value={textInput}
-                    onChange={changeText}
+                    value={numberInput}
+                    onChange={changeNumber}
                 />
-                <label htmlFor="duration">Adres url plakatu:</label>
+                <label htmlFor="url">Adres url plakatu:</label>
                 <input
-                    type="number"
-                    name="duration"
-                    value={textInput}
-                    onChange={changeText}
+                    type="text"
+                    name="url"
+                    value={urlInput}
+                    onChange={changeUrl}
                 />
-                <button onClick={() => handleClick(textInput)}>Dodaj</button>
+                <button
+                    onClick={() =>
+                        handleClick(textInput, numberInput, urlInput)
+                    }
+                >
+                    Dodaj
+                </button>
             </div>
         </div>
     );
