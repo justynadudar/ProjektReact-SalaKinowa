@@ -1,53 +1,67 @@
-import React from 'react';
-import './style/Repertoire.css';
-import Home from './Home.js';
+import React from "react";
+import "./style/Repertoire.css";
+import Home from "./Home.js";
+import { connect } from "react-redux";
+import { fetchData } from "./actions";
 
-class Repertoire  extends React.Component {
+class Repertoire extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
 
-  constructor(props) {
-    super(props);
-    this.state = {dane: []};
+    componentDidMount() {
+        this.props.fetchData();
+        this.setState({ data: this.props.dataReducer.data });
+    }
 
-}
+    // componentDidMount() {
+    //     fetch("http://localhost:3001/orders", {
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //             Accept: "application/json",
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => this.setState({ dane: data }));
+    // }
 
-componentDidMount(){
-  fetch('http://localhost:3001/orders', {
-    headers : {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-     }})
-      .then(response => response.json())
-      .then(data => this.setState({dane: data}));
-}
+    render() {
+        const { data } = this.state;
 
-
-
-  render(){
-    const {dane} = this.state;
-
-    return (
-      
-      <div>
-        <Home/>
-        <div className="repertoire">
-        
-          {dane.map((element) =>
-            <div className="showing">
-              <img src={element.imgUrl} alt={element.title}/> 
-              <div className="showingInformation">
-              <p>Tytuł: {element.title}</p>
-              <p>Czas trwania: {element.duration}</p>
-              </div>
+        return (
+            <div>
+                <Home />
+                <div className="repertoire">
+                    {!data.loading
+                        ? data.map((element) => (
+                              <div className="showing">
+                                  <img
+                                      src={element.imgUrl}
+                                      alt={element.title}
+                                  />
+                                  <div className="showingInformation">
+                                      <p>Tytuł: {element.title}</p>
+                                      <p>Czas trwania: {element.duration}</p>
+                                  </div>
+                              </div>
+                          ))
+                        : null}
+                    <button title="Dodaj seans"> + </button>
+                </div>
             </div>
-            )}
-        <button title="Dodaj seans"> + </button>   
-        </div>
-        
-        
-      </div>
-    );
-  }
-  
-  }
-  
-  export default Repertoire;
+        );
+    }
+}
+
+const mapStateToProps = (state) => {
+    return { ...state };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: () => dispatch(fetchData()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Repertoire);
