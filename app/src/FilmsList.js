@@ -23,7 +23,11 @@ class FilmsList extends React.Component {
                 <div className="films">
                     {films.loaded
                         ? films.data.map((film) => (
-                              <Film key={Math.random()} film={film} />
+                              <Film
+                                  key={Math.random()}
+                                  film={film}
+                                  deleteFilm={this.props.deleteFilm}
+                              />
                           ))
                         : null}
                 </div>
