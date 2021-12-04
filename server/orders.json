@@ -1,50 +1,42 @@
 [
-  {
-    "id": 0,
-    "title": "James Bond",
-    "duration": 110,
-    "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
-    "showings": [
-      {
-        "date": "2021-12-10",
-        "hour": "",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "title": "James Bond",
-    "duration": 0,
-    "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
-    "showings": [
-      {
-        "date": "2021-12-05",
-        "hour": "20:10",
-        "occupiedSeats": [],
-        "cinemaHall": {},
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "title": "ajsa",
-    "duration": "12",
-    "imgUrl": "",
-    "showings": [
-      {
-        "date": "2022-01-09",
-        "hour": "21:03",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      }
-    ]
-  }
+    {
+        "id": 0,
+        "title": "James Bond",
+        "duration": 110,
+        "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
+        "showings": [
+            {
+                "date": "2021-12-10",
+                "hour": "",
+                "occupiedSeats": [],
+                "cinemaHall": { "nr": 1, "capacity": 100 },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 0
+            },
+            {
+                "date": "2021-12-23",
+                "hour": "01:23",
+                "occupiedSeats": [],
+                "cinemaHall": { "nr": 1, "capacity": 100 },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 0
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "James Bond",
+        "duration": 0,
+        "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
+        "showings": [
+            {
+                "date": "2021-12-05",
+                "hour": "20:10",
+                "occupiedSeats": [],
+                "cinemaHall": {},
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 0
+            }
+        ]
+    }
 ]

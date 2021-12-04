@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import "./style/AddFilm.css";
 
-function AddFilm({ handleClick }) {
+function AddFilm({ addFilm, films }) {
     let [textInput, setTextInput] = useState("");
     let [urlInput, setUrlInput] = useState("");
     let [numberInput, setNumberInput] = useState("");
+
+    function addFilmToFilmList() {
+        const id = films.id;
+        const sth = {
+            id: id,
+            title: textInput,
+            duration: numberInput,
+            imgUrl: urlInput,
+            showings: [],
+        };
+        addFilm(sth);
+    }
 
     function changeText(e) {
         setTextInput(e.target.value);
@@ -43,13 +55,7 @@ function AddFilm({ handleClick }) {
                     value={urlInput}
                     onChange={changeUrl}
                 />
-                <button
-                    onClick={() =>
-                        handleClick(textInput, numberInput, urlInput)
-                    }
-                >
-                    Dodaj
-                </button>
+                <button onClick={addFilmToFilmList}>Dodaj</button>
             </div>
         </div>
     );

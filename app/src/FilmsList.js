@@ -4,45 +4,32 @@ import AddFilm from "./AddFilm.js";
 import React from "react";
 
 class FilmsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data: [] };
-  }
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
 
-  componentDidMount() {
-    this.props.getData();
-    this.setState({ data: this.props.films.data });
-  }
+    componentDidMount() {
+        this.props.getData();
+        this.setState({ data: this.props.films.data });
+    }
 
-  add(title, duration, url) {
-    const id = this.props.films.id;
-    console.log(title, duration, url);
-    const sth = {
-      id: id,
-      title: title,
-      duration: duration,
-      imgUrl: url,
-      showings: [],
-    };
-    this.props.newFilm(sth);
-  }
+    render() {
+        const { films } = this.props;
 
-  render() {
-    const { films } = this.props;
-
-    return (
-      <div className="filmList">
-        <AddFilm
-          handleClick={(title, duration, url) => this.add(title, duration, url)}
-        />
-        <div className="films">
-          {films.loaded
-            ? films.data.map((film) => <Film key={Math.random()} film={film} />)
-            : null}
-        </div>
-      </div>
-    );
-  }
+        return (
+            <div className="filmList">
+                <AddFilm films={films} addFilm={this.props.newFilm} />
+                <div className="films">
+                    {films.loaded
+                        ? films.data.map((film) => (
+                              <Film key={Math.random()} film={film} />
+                          ))
+                        : null}
+                </div>
+            </div>
+        );
+    }
 }
 
 export default FilmsList;
