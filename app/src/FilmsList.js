@@ -19,7 +19,7 @@ class FilmsList extends React.Component {
 
         return (
             <div className="filmList">
-                <AddFilm films={films} addFilm={this.props.newFilm} />
+                <AddFilm films={films} addFilm={this.props.addFilm} />
                 <div className="films">
                     {films.loaded
                         ? films.data.map((film) => (

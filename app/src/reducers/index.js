@@ -1,9 +1,8 @@
-import dataReducer from "./data";
-import films from "./films";
+import films from "./reducer";
 import { combineReducers } from "redux";
 
 const reducers = combineReducers({
-    dataReducer, films
+    films,
 });
 
 export default reducers;

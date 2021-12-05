@@ -5,36 +5,36 @@ import Navbar from "./Navbar";
 import CinemaHallList from "./CinemaHallList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App({ getData, newFilm, deleteFilm, films, newShowing }) {
-  return (
-    <Router>
-      <Navbar />
-      <Route exact path="/" component={Home} />
-      <Route
-        path="/showings"
-        render={() => (
-          <ShowingsList
-            getData={getData}
-            newFilm={newFilm}
-            films={films}
-            newShowing={newShowing}
-          />
-        )}
-      />
-      <Route
-        path="/films"
-        render={() => (
-          <FilmsList
-            getData={getData}
-            deleteFilm={deleteFilm}
-            newFilm={newFilm}
-            films={films}
-          />
-        )}
-      />
-      <Route path="/cinemahalls" component={CinemaHallList} />
-    </Router>
-  );
+function App({ getData, addFilm, deleteFilm, films, newShowing }) {
+    return (
+        <Router>
+            <Navbar />
+            <Route exact path="/" component={Home} />
+            <Route
+                path="/showings"
+                render={() => (
+                    <ShowingsList
+                        getData={getData}
+                        addFilm={addFilm}
+                        films={films}
+                        newShowing={newShowing}
+                    />
+                )}
+            />
+            <Route
+                path="/films"
+                render={() => (
+                    <FilmsList
+                        getData={getData}
+                        deleteFilm={deleteFilm}
+                        addFilm={addFilm}
+                        films={films}
+                    />
+                )}
+            />
+            <Route path="/cinemahalls" component={CinemaHallList} />
+        </Router>
+    );
 }
 
 export default App;

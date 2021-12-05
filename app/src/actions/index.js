@@ -1,25 +1,10 @@
 import axios from "axios";
 
-// const FETCH_DATA_REQUEST = "FETCH_DATA_REQUEST";
-// const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 const ADD_FILM = "ADD_FILM";
 const DELETE_FILM = "DELETE_FILM";
 const SHOW_ALL = "SHOW_ALL";
 const ADD_SHOWING = "ADD_SHOWING";
-
-// export const fetchDataRequest = () => {
-//     return {
-//         type: FETCH_DATA_REQUEST,
-//     };
-// };
-
-// export const fetchDataSuccess = (data) => {
-//     return {
-//         type: FETCH_DATA_SUCCESS,
-//         payload: data,
-//     };
-// };
 
 export const fetchDataFailure = (error) => {
     return {
@@ -28,35 +13,25 @@ export const fetchDataFailure = (error) => {
     };
 };
 
-// export const fetchData = () => {
-//     return (dispatch) => {
-//         dispatch(fetchDataRequest());
-//         axios
-//             .get("http://localhost:3001/orders")
-//             .then((response) => dispatch(fetchDataSuccess(response.data)))
-//             .catch((err) => dispatch(fetchDataFailure(err.data)));
-//     };
-// };
-
-export const showFilmsAction = (data) => ({
+export const showFilmsAction = (films) => ({
     type: SHOW_ALL,
-    data,
+    films: films,
 });
 
-export const addFilmAction = (new_film) => ({
+export const addFilmAction = (newFilm) => ({
     type: ADD_FILM,
-    new_film,
+    newFilm: newFilm,
 });
 
 export const deleteFilmAction = (data) => ({
     type: DELETE_FILM,
-    data,
+    data: data,
 });
 
 export const addShowingAction = (data, id) => ({
     type: ADD_SHOWING,
-    data,
-    id,
+    data: data,
+    id: id,
 });
 
 export const getData = () => (dispatch) => {
@@ -66,8 +41,9 @@ export const getData = () => (dispatch) => {
         .catch((error) => console.error("Error:", error));
 };
 
-export const newFilm = (new_film) => (dispatch) => {
-    const new_film_to_send = new_film.data;
+export const addFilm = (newFilm) => (dispatch) => {
+    const new_film_to_send = newFilm.data;
+    console.log(new_film_to_send);
     axios
         .post("http://localhost:3001/orders", new_film_to_send)
         .then((response) => dispatch(addFilmAction(response.data)))

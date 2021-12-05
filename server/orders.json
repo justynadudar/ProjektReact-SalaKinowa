@@ -1,9 +1,9 @@
 [
-  {
-    "id": 0,
-    "title": "James Bond",
-    "duration": 110,
-    "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
-    "showings": []
-  }
+    {
+        "id": 0,
+        "title": "James Bond",
+        "duration": 110,
+        "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
+        "showings": []
+    }
 ]
