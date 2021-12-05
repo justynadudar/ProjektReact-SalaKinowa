@@ -4,24 +4,10 @@ const initialState = {
   id: 0,
   error: "",
 };
-// initialState.id = initialState.data[initialState.data.length].id;
 
 export default function films(state = initialState, action) {
   let new_state;
   switch (action.type) {
-    case "FETCH_DATA_REQUEST":
-      return {
-        loaded: true,
-        data: [],
-        error: "",
-      };
-    case "FETCH_DATA_SUCCESS":
-      alert("sukces!");
-      return {
-        loaded: false,
-        data: action.payload,
-        error: "",
-      };
     case "FETCH_DATA_FAILURE":
       return {
         loaded: false,
@@ -41,9 +27,16 @@ export default function films(state = initialState, action) {
         id: state.id + 1,
         data: [...state.data, action.new_film],
       });
+
+    case "DELETE_FILM":
+      alert("usunieto film");
+      new_state = Object.assign({}, state);
+      return new_state;
+
     case "ADD_SHOWING":
       alert("dodano seans do filmu");
       return Object.assign({}, state);
+
     default:
       return state;
   }

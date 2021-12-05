@@ -1,1 +1,9 @@
-[{"id":0,"title":"James Bond","duration":110,"imgUrl":"https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg","showings":[{"date":"2021-12-10","hour":"","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0},{"date":"2021-12-23","hour":"01:23","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0}]},{"id":4,"title":"kill bill","duration":"120","imgUrl":"https://m.media-amazon.com/images/I/51WsO3rzaLL._AC_SY1000_.jpg","showings":[{"date":"2021-11-30","hour":"03:40","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0},{"date":"2021-11-30","hour":"23:37","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0},{"date":"2022-01-02","hour":"00:45","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0},{"date":"2021-12-01","hour":"04:45","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0},{"date":"2021-12-05","hour":"00:00","occupiedSeats":[],"cinemaHall":{"nr":1,"capacity":100},"numberOfSeatsSold":0,"numberOfAvaibleSeats":0}]},{"id":5,"title":"123","duration":"123","imgUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5lVOkmRA6n4A5HnhymqBUxsAVlGjI6_Kevw&usqp=CAU","showings":[]}]
+[
+  {
+    "id": 0,
+    "title": "James Bond",
+    "duration": 110,
+    "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
+    "showings": []
+  }
+]
