@@ -43,15 +43,7 @@ export default function films(state = initialState, action) {
       });
     case "ADD_SHOWING":
       alert("dodano seans do filmu");
-      const found = state.data.find(
-        (element) => element.title === action.data.title
-      );
-
-      found.showings = [...found.showings, action.data];
-      return Object.assign({}, state, {
-        id: state.id + 1,
-        data: [...state.data],
-      });
+      return Object.assign({}, state);
     default:
       return state;
   }

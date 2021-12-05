@@ -1,24 +1,24 @@
 .Film {
-    display: flex;
-    margin: 10px;
-    border-bottom: 1px solid #ddd;
+  display: flex;
+  margin: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .Film .imageHolder {
-    width: 10%;
+  width: 10%;
 }
 
 .Film .descriptionHolder {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px 25px;
 }
 
 .Film .descriptionHolder h2 {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 div img {
-    width: 100%;
+  width: 100%;
 }

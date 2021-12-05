@@ -1,4 +1,4 @@
-import Repertoire from "./Repertoire";
+import ShowingsList from "./ShowingsList";
 import Home from "./Home";
 import FilmsList from "./FilmsList";
 import Navbar from "./Navbar";
@@ -11,9 +11,9 @@ function App({ getData, newFilm, films, newShowing }) {
       <Navbar />
       <Route exact path="/" component={Home} />
       <Route
-        path="/repertoire"
+        path="/showings"
         render={() => (
-          <Repertoire
+          <ShowingsList
             getData={getData}
             newFilm={newFilm}
             films={films}
