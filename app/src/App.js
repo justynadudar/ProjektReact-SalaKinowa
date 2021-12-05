@@ -1,4 +1,5 @@
 import ShowingsList from "./ShowingsList";
+import AddFilm from "./AddFilm";
 import Home from "./Home";
 import FilmsList from "./FilmsList";
 import Navbar from "./Navbar";
@@ -10,6 +11,10 @@ function App({ getData, addFilm, deleteFilm, films, addShowing }) {
         <Router>
             <Navbar />
             <Route exact path="/" component={Home} />
+            <Route
+                path="/addFilm"
+                render={() => <AddFilm addFilm={addFilm} films={films} />}
+            />
             <Route
                 path="/showings"
                 render={() => (

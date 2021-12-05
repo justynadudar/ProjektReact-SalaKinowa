@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./style/AddFilm.css";
 
 function AddFilm({ addFilm, films }) {
@@ -8,6 +9,7 @@ function AddFilm({ addFilm, films }) {
 
     function addFilmToFilmList() {
         const id = films.id;
+        console.log(films);
         const newFilm = {
             id: id,
             title: textInput,
@@ -59,7 +61,9 @@ function AddFilm({ addFilm, films }) {
                     value={urlInput}
                     onChange={changeUrl}
                 />
-                <button onClick={addFilmToFilmList}>Dodaj</button>
+                <button onClick={addFilmToFilmList}>
+                    <Link to="/films">Dodaj</Link>
+                </button>
             </div>
         </div>
     );
