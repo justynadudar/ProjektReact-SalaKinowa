@@ -55,7 +55,7 @@ function Modyfication({ films, addShowing }) {
                 <datalist id="films">
                     {films.loaded
                         ? films.data.map((film) => (
-                              <option>{film.title}</option>
+                              <option key={Math.random()}>{film.title}</option>
                           ))
                         : null}
                 </datalist>

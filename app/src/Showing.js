@@ -3,7 +3,7 @@ import "./style/Showing.css";
 function Showing({ film }) {
     return (
         <div className="Showing">
-            <Film key={Math.random()} film={film} />
+            <Film film={film} />
             {/* <p>{film.showings.hour}</p> */}
             <p>11:05</p>
         </div>
