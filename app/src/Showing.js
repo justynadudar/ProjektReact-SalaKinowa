@@ -6,7 +6,7 @@ function Showing({ film }) {
       <Film key={Math.random()} film={film} />
       <div className="showingHours">
         {film.showings.map((showing) => (
-          <p>{showing.hour}</p>
+          <p key={Math.random()}>{showing.hour}</p>
         ))}
       </div>
     </div>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
   {
     "id": 0,
@@ -7,96 +6,16 @@
     "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
     "showings": [
       {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
         "date": "2021-12-05",
-        "hour": "08:45",
+        "hour": "14:30",
         "occupiedSeats": [],
         "cinemaHall": { "nr": 1, "capacity": 100 },
         "numberOfSeatsSold": 0,
         "numberOfAvaibleSeats": 0
       },
       {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-05",
-        "hour": "08:45",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-05",
-        "hour": "08:45",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-05",
-        "hour": "08:45",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-05",
-        "hour": "08:45",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-06",
-        "hour": "10:50",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 100 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "date": "2021-12-05",
-        "hour": "08:45",
+        "date": "2021-12-12",
+        "hour": "16:30",
         "occupiedSeats": [],
         "cinemaHall": { "nr": 1, "capacity": 100 },
         "numberOfSeatsSold": 0,
@@ -106,19 +25,9 @@
   },
   {
     "id": 1,
-    "title": "sdddsd",
-    "duration": "1212",
-    "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
-    "showings": []
-  },
-  {
-    "id": 2,
-    "title": "sdsdasds",
-    "duration": "232324",
+    "title": "James Bond 2",
+    "duration": 110,
     "imgUrl": "https://cdn.pixabay.com/photo/2016/09/30/11/33/vintage-1705056_960_720.jpg",
     "showings": []
   }
 ]
-=======
-[{"id":0,"title":"","duration":"","imgUrl":"","showings":[]},{"id":1,"title":"","duration":"","imgUrl":"","showings":[]},{"id":2,"title":"","duration":"","imgUrl":"","showings":[]},{"id":3,"title":"","duration":"","imgUrl":"","showings":[]}]
->>>>>>> b652287271e3410f8f8397ac84eea39326029262

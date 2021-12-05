@@ -16,8 +16,6 @@ export default function films(state = initialState, action) {
       };
     case "SHOW_ALL":
       newState = Object.assign({}, state);
-      console.log("action: " + action.films.length);
-      console.log("data: " + newState.data.length);
       //jesli zaczynamy z pustym story i plikiem orders.json
       if (action.films.length === 0 && newState.data.length === 0) {
         newState.id = 0;
@@ -40,25 +38,27 @@ export default function films(state = initialState, action) {
       //w przeciwmnym wypadku zostaja te filmy ktore sa w story, a jesli dodajemy ciagiem filmy to na pozatku zawsze sa tutaj
       newState.loaded = true;
       return newState;
+
     case "SHOW_SHOWINGS_OF_THAT_DAY":
       let today = new Date();
-      let tmpShowingsArray = [];
       let date =
         today.getFullYear() +
         "-" +
-        (today.getMonth() + 1) +
+        ("0" + (today.getMonth() + 1)).slice(-2) +
         "-" +
-        today.getDate();
+        ("0" + today.getDate()).slice(-2);
+
       newState = Object.assign({}, state);
-      newState.data = newState.data.forEach((film, id, filmsTab) => {
-        filmsTab.showings = filmsTab.forEach((showing, showId, showingsTab) => {
-          if (showing.date === date) tmpShowingsArray.push(showing);
-        });
-        film.showings = tmpShowingsArray;
-        return filmsTab;
+      newState.data.forEach((film) => {
+        film.showings = film.showings.filter(
+          (showing) => showing.date === date
+        );
       });
-      newState.id = action.films[action.films.length - 1].id + 1;
-      newState.data = action.films;
+
+      newState.data = newState.data.filter(
+        (film) => film.showings.length !== 0
+      );
+      newState.id = action.showings[action.showings.length - 1].id + 1;
       newState.loaded = true;
       return newState;
 
