@@ -1,12 +1,17 @@
 .Showing {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Showing .Film {
-    flex-grow: 2;
+  flex-grow: 2;
 }
 
-.Showing p {
-    flex-grow: 1;
+.Showing .showingHours {
+  flex-grow: 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+.showingHours p {
+  padding: 0.2rem;
 }

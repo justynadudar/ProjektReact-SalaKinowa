@@ -21,6 +21,28 @@ export default function films(state = initialState, action) {
       newState.loaded = true;
       return newState;
 
+    case "SHOW_SHOWINGS_OF_THAT_DAY":
+      let today = new Date();
+      let tmpShowingsArray = [];
+      let date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      newState = Object.assign({}, state);
+      newState.data = newState.data.forEach((film, id, filmsTab) => {
+        filmsTab.showings = filmsTab.forEach((showing, showId, showingsTab) => {
+          if (showing.date === date) tmpShowingsArray.push(showing);
+        });
+        film.showings = tmpShowingsArray;
+        return filmsTab;
+      });
+      newState.id = action.films[action.films.length - 1].id + 1;
+      newState.data = action.films;
+      newState.loaded = true;
+      return newState;
+
     case "ADD_FILM":
       alert("dodano film");
       return Object.assign({}, state, {

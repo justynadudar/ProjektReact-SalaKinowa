@@ -1,0 +1,44 @@
+.AddShowing {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 50px 0;
+}
+
+.AddShowing div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  padding: 25px 40px;
+  background-color: #eee;
+  box-shadow: 3px 3px 10px #666;
+  border-radius: 10px;
+}
+
+.AddShowing h2 {
+  text-align: center;
+  padding: 15px 0;
+}
+
+.AddShowing div input {
+  display: flex;
+  margin: 5px 0 10px;
+}
+
+.AddShowing div button {
+  border-radius: 10px;
+  border: 2px solid #061152;
+  margin: 10px 0;
+  padding: 10px 10px;
+  width: 100%;
+  background-color: #172263;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.AddShowing div button:hover {
+  cursor: pointer;
+  background-color: #061152;
+}
