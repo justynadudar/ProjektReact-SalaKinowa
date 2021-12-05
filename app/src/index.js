@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./style/index.css";
 import App from "./App";
 import reducers from "./reducers";
-import { getData, addFilm, deleteFilm, newShowing } from "./actions";
+import { getData, addFilm, deleteFilm, addShowing } from "./actions";
 import { createStore, applyMiddleware } from "redux";
 import { Provider, connect } from "react-redux";
 import thunk from "redux-thunk";
@@ -23,7 +23,8 @@ const mapDispatchToProps = (dispatch) => {
         getData: () => dispatch(getData()),
         addFilm: (newFilm) => dispatch(addFilm({ newFilm })),
         deleteFilm: (id) => dispatch(deleteFilm({ id })),
-        newShowing: (data, id) => dispatch(newShowing({ data: data, id: id })),
+        addShowing: (newShowing, id) =>
+            dispatch(addShowing({ newShowing, id })),
     };
 };
 

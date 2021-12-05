@@ -28,9 +28,9 @@ export const deleteFilmAction = (data) => ({
     data: data,
 });
 
-export const addShowingAction = (data, id) => ({
+export const addShowingAction = (newShowing, id) => ({
     type: ADD_SHOWING,
-    data: data,
+    newShowing: newShowing,
     id: id,
 });
 
@@ -41,14 +41,14 @@ export const getData = () => (dispatch) => {
         .catch((error) => console.error("Error:", error));
 };
 
-export const addFilm = (newFilm) => (dispatch) => {
-    const new_film_to_send = newFilm.data;
-    console.log(new_film_to_send);
-    axios
-        .post("http://localhost:3001/orders", new_film_to_send)
-        .then((response) => dispatch(addFilmAction(response.data)))
-        .catch((err) => dispatch(fetchDataFailure(err.data)));
-};
+export const addFilm =
+    ({ newFilm }) =>
+    (dispatch) => {
+        axios
+            .post("http://localhost:3001/orders", newFilm)
+            .then((response) => dispatch(addFilmAction(response.data)))
+            .catch((err) => dispatch(fetchDataFailure(err.data)));
+    };
 
 export const deleteFilm =
     ({ id }) =>
@@ -60,11 +60,11 @@ export const deleteFilm =
             .catch((err) => dispatch(fetchDataFailure(err.data)));
     };
 
-export const newShowing = (data, id) => (dispatch) => {
-    const new_showing_to_send = data.data;
-    console.log(`http://localhost:3001/orders/${data.id}`);
-    axios
-        .put(`http://localhost:3001/orders/${data.id}`, new_showing_to_send)
-        .then((response) => dispatch(addShowingAction(response.data, id)))
-        .catch((err) => dispatch(fetchDataFailure(err.data)));
-};
+export const addShowing =
+    ({ newShowing, id }) =>
+    (dispatch) => {
+        axios
+            .put(`http://localhost:3001/orders/${id}`, newShowing)
+            .then((response) => dispatch(addShowingAction(response.data, id)))
+            .catch((err) => dispatch(fetchDataFailure(err.data)));
+    };

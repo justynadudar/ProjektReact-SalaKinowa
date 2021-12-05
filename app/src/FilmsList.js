@@ -4,14 +4,8 @@ import AddFilm from "./AddFilm.js";
 import React from "react";
 
 class FilmsList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { data: [] };
-    }
-
     componentDidMount() {
         this.props.getData();
-        this.setState({ data: this.props.films.data });
     }
 
     render() {

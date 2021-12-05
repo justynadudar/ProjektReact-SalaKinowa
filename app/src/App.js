@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import CinemaHallList from "./CinemaHallList";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-function App({ getData, addFilm, deleteFilm, films, newShowing }) {
+function App({ getData, addFilm, deleteFilm, films, addShowing }) {
     return (
         <Router>
             <Navbar />
@@ -17,7 +17,7 @@ function App({ getData, addFilm, deleteFilm, films, newShowing }) {
                         getData={getData}
                         addFilm={addFilm}
                         films={films}
-                        newShowing={newShowing}
+                        addShowing={addShowing}
                     />
                 )}
             />
