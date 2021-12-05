@@ -25,7 +25,7 @@ function Film({ film, deleteFilm }) {
                     >
                         <AiTwotoneEdit />
                     </Link>
-                    <button onClick={() => deleteFilm(1)}>
+                    <button onClick={() => deleteFilm(film.id)}>
                         <AiFillDelete />
                     </button>
                 </div>

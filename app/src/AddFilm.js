@@ -16,6 +16,10 @@ function AddFilm({ addFilm, films }) {
             showings: [],
         };
         addFilm(newFilm);
+
+        setTextInput("");
+        setNumberInput("");
+        setUrlInput("");
     }
 
     function changeText(e) {
