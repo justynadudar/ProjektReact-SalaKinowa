@@ -1,7 +1,8 @@
 import "./style/FilmsList.css";
 import Film from "./Film";
-import AddFilm from "./AddFilm.js";
+import { Link } from "react-router-dom";
 import React from "react";
+import { BiAddToQueue } from "react-icons/bi";
 
 class FilmsList extends React.Component {
     componentDidMount() {
@@ -13,7 +14,11 @@ class FilmsList extends React.Component {
 
         return (
             <div className="filmList">
-                <AddFilm films={films} addFilm={this.props.addFilm} />
+                <div className="addFilmButton">
+                    <Link to="/addFilm">
+                        <BiAddToQueue />
+                    </Link>
+                </div>
                 <div className="films">
                     {films.loaded
                         ? films.data.map((film) => (

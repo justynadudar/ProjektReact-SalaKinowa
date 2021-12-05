@@ -20,7 +20,7 @@ function Modyfication({ films, addShowing }) {
     const updatedElement = films.data.find(
       (element) => element.title === textInput
     );
-    const sth = {
+    const newShowing = {
       id: updatedElement.id,
       title: updatedElement.title,
       duration: updatedElement.duration,
@@ -37,11 +37,11 @@ function Modyfication({ films, addShowing }) {
         },
       ],
     };
-    addShowing(sth, updatedElement.id);
+    addShowing(newShowing, updatedElement.id);
   }
 
   return (
-    <div className="AddShowing">
+    <div className="AddFilm">
       <div>
         <h2>Dodaj seans:</h2>
         <label htmlFor="title">Film:</label>
@@ -54,7 +54,9 @@ function Modyfication({ films, addShowing }) {
         />
         <datalist id="films">
           {films.loaded
-            ? films.data.map((film) => <option>{film.title}</option>)
+            ? films.data.map((film) => (
+                <option key={Math.random()}>{film.title}</option>
+              ))
             : null}
         </datalist>
         <label htmlFor="date">Data:</label>

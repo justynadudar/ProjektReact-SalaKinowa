@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "id": 0,
@@ -118,3 +119,6 @@
     "showings": []
   }
 ]
+=======
+[{"id":0,"title":"","duration":"","imgUrl":"","showings":[]},{"id":1,"title":"","duration":"","imgUrl":"","showings":[]},{"id":2,"title":"","duration":"","imgUrl":"","showings":[]},{"id":3,"title":"","duration":"","imgUrl":"","showings":[]}]
+>>>>>>> b652287271e3410f8f8397ac84eea39326029262

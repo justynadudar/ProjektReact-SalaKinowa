@@ -23,9 +23,10 @@ export const addFilmAction = (newFilm) => ({
     newFilm: newFilm,
 });
 
-export const deleteFilmAction = (data) => ({
+export const deleteFilmAction = (data, id) => ({
     type: DELETE_FILM,
     data: data,
+    id: id,
 });
 
 export const addShowingAction = (newShowing, id) => ({
@@ -56,7 +57,7 @@ export const deleteFilm =
         console.log(id);
         axios
             .delete(`http://localhost:3001/orders/${id}`)
-            .then((response) => dispatch(deleteFilmAction(response.data)))
+            .then((response) => dispatch(deleteFilmAction(response.data, id)))
             .catch((err) => dispatch(fetchDataFailure(err.data)));
     };
 

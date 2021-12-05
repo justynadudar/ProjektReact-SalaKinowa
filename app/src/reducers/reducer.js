@@ -16,11 +16,30 @@ export default function films(state = initialState, action) {
       };
     case "SHOW_ALL":
       newState = Object.assign({}, state);
-      newState.id = action.films[action.films.length - 1].id + 1;
-      newState.data = action.films;
+      console.log("action: " + action.films.length);
+      console.log("data: " + newState.data.length);
+      //jesli zaczynamy z pustym story i plikiem orders.json
+      if (action.films.length === 0 && newState.data.length === 0) {
+        newState.id = 0;
+      }
+      //jesli jest pierwsze zaladowanie danych do story z pliku json
+      else if (action.films.length !== 0 && newState.data.length === 0) {
+        //bierzemy wtedy last id z akcji, bo dane jeszcze nie sa zaktualizowane
+        newState.id = action.films[action.films.length - 1].id + 1;
+      } else {
+        //jesli dodajemy filmy ciagiem to pierwszo sie aktualizuje state.data, dlatego w przeciwnym wypadku bierzemy ostatni indeks filmu ze story
+        newState.id = newState.data[newState.data.length - 1].id + 1;
+      }
+      //filmy ladujemy z akcji gdy pierwszy raz łaujemy plik lub gdy sie zgadzaja ich wielkosci czyli kiedy przeladowujemy strone
+      if (
+        action.films.length === newState.data.length ||
+        (action.films.length !== 0 && newState.data.length === 0)
+      ) {
+        newState.data = action.films;
+      }
+      //w przeciwmnym wypadku zostaja te filmy ktore sa w story, a jesli dodajemy ciagiem filmy to na pozatku zawsze sa tutaj
       newState.loaded = true;
       return newState;
-
     case "SHOW_SHOWINGS_OF_THAT_DAY":
       let today = new Date();
       let tmpShowingsArray = [];
@@ -46,13 +65,15 @@ export default function films(state = initialState, action) {
     case "ADD_FILM":
       alert("dodano film");
       return Object.assign({}, state, {
-        id: state.id + 1,
+        id: ++state.id,
         data: [...state.data, action.newFilm],
       });
 
     case "DELETE_FILM":
       alert("usunieto film");
       newState = Object.assign({}, state);
+      newState.data = newState.data.filter((film) => film.id !== action.id);
+      newState.loaded = true;
       return newState;
 
     case "ADD_SHOWING":
