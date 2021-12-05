@@ -1,11 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Error = (props) => {
+const Error = ({ error, info }) => {
     return (
         <div>
-            {props.error ? (
+            {error ? (
                 <div className="Error">
-                    <p style={{ color: "red" }}>{props.info}</p>
+                    <p style={{ color: "red" }}>{info}</p>
                 </div>
             ) : null}
         </div>
@@ -13,3 +14,8 @@ const Error = (props) => {
 };
 
 export default Error;
+
+Error.propTypes = {
+    error: PropTypes.bool.isRequired,
+    info: PropTypes.string.isRequired,
+};

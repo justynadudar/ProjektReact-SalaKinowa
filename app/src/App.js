@@ -76,7 +76,6 @@ function App({
                     <FilmsList
                         getData={getData}
                         deleteFilm={deleteFilm}
-                        addFilm={addFilm}
                         films={films}
                     />
                 )}
@@ -87,6 +86,3 @@ function App({
 }
 
 export default App;
-
-/* <Route path='/users' element={UsersList}/>
-<Route path='/clients/:id' component={ClientEdit}/> */
