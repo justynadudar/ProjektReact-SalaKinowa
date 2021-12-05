@@ -1,24 +1,41 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style/Modyfication.css";
+import { Link } from "react-router-dom";
+import { BsArrowLeftShort } from "react-icons/bs";
 
-function Modyfication({ films, addShowing }) {
-  let [textInput, setTextInput] = useState("");
-  let [dateInput, setDateInput] = useState("");
-  let [timeInput, setTimeInput] = useState("");
-
-  function changeText(e) {
-    setTextInput(e.target.value);
+class Modyfication extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      textInput: "",
+      dateInput: "",
+      timeInput: "",
+    };
   }
-  function changeDate(e) {
-    setDateInput(e.target.value);
-  }
-  function changeTime(e) {
-    setTimeInput(e.target.value);
+  componentDidMount() {
+    this.props.getData();
   }
 
-  function addShowingToShowingList() {
+  changeText = (e) => {
+    this.setState({
+      textInput: e.target.value,
+    });
+  };
+  changeDate = (e) => {
+    this.setState({
+      dateInput: e.target.value,
+    });
+  };
+  changeTime = (e) => {
+    this.setState({
+      timeInput: e.target.value,
+    });
+  };
+
+  addShowingToShowingList(films) {
+    const showingId = Math.floor(Math.random() * 99999) + 1;
     const updatedElement = films.data.find(
-      (element) => element.title === textInput
+      (element) => element.title === this.state.textInput
     );
     const newShowing = {
       id: updatedElement.id,
@@ -28,8 +45,9 @@ function Modyfication({ films, addShowing }) {
       showings: [
         ...updatedElement.showings,
         {
-          date: dateInput,
-          hour: timeInput,
+          showingId: showingId,
+          date: this.state.dateInput,
+          hour: this.state.timeInput,
           occupiedSeats: [],
           cinemaHall: { nr: 1, capacity: 100 },
           numberOfSeatsSold: 0,
@@ -37,46 +55,54 @@ function Modyfication({ films, addShowing }) {
         },
       ],
     };
-    addShowing(newShowing, updatedElement.id);
+    this.props.addShowing(newShowing, updatedElement.id);
   }
 
-  return (
-    <div className="AddFilm">
-      <div>
-        <h2>Dodaj seans:</h2>
-        <label htmlFor="title">Film:</label>
-        <input
-          type="text"
-          list="films"
-          name="title"
-          value={textInput}
-          onChange={changeText}
-        />
-        <datalist id="films">
-          {films.loaded
-            ? films.data.map((film) => (
-                <option key={Math.random()}>{film.title}</option>
-              ))
-            : null}
-        </datalist>
-        <label htmlFor="date">Data:</label>
-        <input
-          type="date"
-          name="date"
-          value={dateInput}
-          onChange={changeDate}
-        />
-        <label htmlFor="time">Godzina:</label>
-        <input
-          type="time"
-          name="hour"
-          value={timeInput}
-          onChange={changeTime}
-        />
-        <button onClick={addShowingToShowingList}>Dodaj</button>
+  render() {
+    const { films } = this.props;
+    return (
+      <div className="AddShowing">
+        <div>
+          <Link to="/showings">
+            <BsArrowLeftShort />
+          </Link>
+          <h2>Dodaj seans:</h2>
+          <label htmlFor="title">Film:</label>
+          <input
+            type="text"
+            list="films"
+            name="title"
+            value={this.textInput}
+            onChange={this.changeText}
+          />
+          <datalist id="films">
+            {films.loaded
+              ? films.data.map((film) => (
+                  <option key={Math.random()}>{film.title}</option>
+                ))
+              : null}
+          </datalist>
+          <label htmlFor="date">Data:</label>
+          <input
+            type="date"
+            name="date"
+            value={this.dateInput}
+            onChange={this.changeDate}
+          />
+          <label htmlFor="time">Godzina:</label>
+          <input
+            type="time"
+            name="hour"
+            value={this.timeInput}
+            onChange={this.changeTime}
+          />
+          <button onClick={() => this.addShowingToShowingList(films)}>
+            <Link to="/showings">Dodaj</Link>
+          </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Modyfication;

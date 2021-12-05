@@ -11,3 +11,29 @@
   width: 80%;
   list-style-type: none;
 }
+
+.showingsList .addShowingButton {
+  margin: 10px 0;
+  height: 3vh;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+.showingsList .addShowingButton a {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.showingsList .addShowingButton a:hover {
+  background-color: #ccc;
+}

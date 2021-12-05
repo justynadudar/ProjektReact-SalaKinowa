@@ -1,4 +1,5 @@
 import Film from "./Film.js";
+import { Link } from "react-router-dom";
 import "./style/Showing.css";
 function Showing({ film }) {
   return (
@@ -6,7 +7,16 @@ function Showing({ film }) {
       <Film key={Math.random()} film={film} />
       <div className="showingHours">
         {film.showings.map((showing) => (
-          <p key={Math.random()}>{showing.hour}</p>
+          <p key={Math.random()}>
+            <Link
+              to={{
+                pathname: `/editShowing/${showing.showingId}`,
+                state: { modal: true },
+              }}
+            >
+              {showing.hour}
+            </Link>
+          </p>
         ))}
       </div>
     </div>

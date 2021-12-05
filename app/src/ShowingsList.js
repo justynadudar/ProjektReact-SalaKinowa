@@ -1,7 +1,8 @@
 import React from "react";
-import Modyfication from "./Modyfication";
 import Showing from "./Showing";
 import "./style/ShowingsList.css";
+import { Link } from "react-router-dom";
+import { BiAddToQueue } from "react-icons/bi";
 
 class ShowingsList extends React.Component {
   componentDidMount() {
@@ -14,15 +15,15 @@ class ShowingsList extends React.Component {
 
     return (
       <div className="showingsList">
-        <Modyfication
-          key={Math.random()}
-          films={this.props.films}
-          addShowing={this.props.addShowing}
-        />
+        <div className="addShowingButton">
+          <Link to="/addShowing">
+            <BiAddToQueue />
+          </Link>
+        </div>
         <div className="showings">
           {films.loaded
-            ? films.data.map((showing) => (
-                <Showing key={Math.random()} film={showing} />
+            ? films.data.map((film) => (
+                <Showing key={Math.random()} film={film} />
               ))
             : null}
         </div>
