@@ -1,9 +1,9 @@
-.AddFilm {
+.EditFilm {
     display: flex;
     justify-content: center;
 }
 
-.AddFilm div {
+.EditFilm div {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
@@ -15,17 +15,17 @@
     border-radius: 10px;
 }
 
-.AddFilm h2 {
+.EditFilm h2 {
     text-align: center;
     padding: 0 0 30px;
 }
 
-.AddFilm div input {
+.EditFilm div input {
     display: flex;
     margin: 5px 0 10px;
 }
 
-.AddFilm div button {
+.EditFilm div button {
     border-radius: 10px;
     margin: 10px 0;
     width: 100%;
@@ -34,12 +34,12 @@
     display: flex;
 }
 
-.AddFilm div button:hover {
+.EditFilm div button:hover {
     cursor: pointer;
     background-color: #061152;
 }
 
-.AddFilm div button a {
+.EditFilm div button a {
     width: 100%;
     color: white;
     text-decoration: none;
@@ -47,7 +47,7 @@
     padding: 10px 10px;
 }
 
-.AddFilm div > a {
+.EditFilm div > a {
     width: 100%;
     color: black;
     font-size: 30px;

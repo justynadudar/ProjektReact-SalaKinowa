@@ -1,7 +1,6 @@
 import "./style/Film.css";
 import { Link } from "react-router-dom";
-import { AiTwotoneEdit } from "react-icons/ai";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiTwotoneEdit } from "react-icons/ai";
 
 function Film({ film, deleteFilm }) {
     return (
@@ -19,7 +18,7 @@ function Film({ film, deleteFilm }) {
                 <div className="holder">
                     <Link
                         to={{
-                            pathname: "/editFilm",
+                            pathname: `/editFilm/${film.id}`,
                             state: { modal: true },
                         }}
                     >

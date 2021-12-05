@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./style/AddFilm.css";
+import "./style/EditFilm.css";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { getData } from "./actions";
 
-function AddFilm({ addFilm, films }) {
+function EditFilm({ editFilm, film }) {
     let [textInput, setTextInput] = useState("");
     let [urlInput, setUrlInput] = useState("");
     let [numberInput, setNumberInput] = useState("");
 
-    function addFilmToFilmList() {
-        const id = films.id;
-        console.log(films);
-        const newFilm = {
+    function editFilmInFilmList() {
+        console.log(film.id);
+        const id = film.id;
+        console.log(film);
+        const editedFilm = {
             id: id,
             title: textInput,
             duration: numberInput,
             imgUrl: urlInput,
             showings: [],
         };
-        addFilm(newFilm);
+        editFilm(editedFilm, id);
         getData();
 
         setTextInput("");
@@ -40,12 +41,12 @@ function AddFilm({ addFilm, films }) {
     }
 
     return (
-        <div className="AddFilm">
+        <div className="EditFilm">
             <div>
                 <Link to="/films">
                     <BsArrowLeftShort />
                 </Link>
-                <h2>Dodaj film:</h2>
+                <h2>Edytuj film:</h2>
                 <label htmlFor="title">Tytuł:</label>
                 <input
                     type="text"
@@ -67,12 +68,12 @@ function AddFilm({ addFilm, films }) {
                     value={urlInput}
                     onChange={changeUrl}
                 />
-                <button onClick={addFilmToFilmList}>
-                    <Link to="/films">Dodaj</Link>
+                <button onClick={editFilmInFilmList}>
+                    <Link to="/films">Edytuj</Link>
                 </button>
             </div>
         </div>
     );
 }
 
-export default AddFilm;
+export default EditFilm;
