@@ -2,7 +2,7 @@ import React from "react";
 import Showing from "./Showing";
 import "./style/Checkout.css";
 import { Link } from "react-router-dom";
-import { BiAddToQueue } from "react-icons/bi";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 class Checkout extends React.Component {
     componentDidMount() {
@@ -15,6 +15,15 @@ class Checkout extends React.Component {
 
         return (
             <div className="Checkout">
+                <div className="changeDayButtons">
+                    <button>
+                        <GrFormPreviousLink />
+                    </button>
+                    <p>06.12.2021</p>
+                    <button>
+                        <GrFormNextLink />
+                    </button>
+                </div>
                 <div className="showings">
                     {films.loaded
                         ? films.data.map((film) => (
