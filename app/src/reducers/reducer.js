@@ -24,6 +24,7 @@ const initialState = {
       capacity: 50,
     },
   ],
+  counter: 0,
 };
 
 export default function films(state = initialState, action) {
@@ -41,19 +42,41 @@ export default function films(state = initialState, action) {
       newState.loaded = true;
       return newState;
 
+    // case "SHOW_SHOWINGS_OF_THAT_DAY":
+    //   let today = new Date();
+    //   let date =
+    //     today.getFullYear() +
+    //     "-" +
+    //     ("0" + (today.getMonth() + 1)).slice(-2) +
+    //     "-" +
+    //     ("0" + today.getDate()).slice(-2);
+
+    //   newState = Object.assign({}, state);
+    //   newState.data.forEach((film) => {
+    //     film.showings = film.showings.filter(
+    //       (showing) => showing.date === date
+    //     );
+    //   });
+
+    //   newState.data = newState.data.filter(
+    //     (film) => film.showings.length !== 0
+    //   );
+    //   newState.loaded = true;
+    //   return newState;
+
     case "SHOW_SHOWINGS_OF_THAT_DAY":
       let today = new Date();
-      let date =
+      let stringToday =
         today.getFullYear() +
         "-" +
         ("0" + (today.getMonth() + 1)).slice(-2) +
         "-" +
-        ("0" + today.getDate()).slice(-2);
+        ("0" + (today.getDate() + state.counter)).slice(-2);
 
       newState = Object.assign({}, state);
       newState.data.forEach((film) => {
         film.showings = film.showings.filter(
-          (showing) => showing.date === date
+          (showing) => showing.date === stringToday
         );
       });
 
