@@ -11,6 +11,8 @@ import {
   addShowing,
   editShowing,
   showShowingsOfThatDay,
+  incrementCounter,
+  decrementCounter,
 } from "./actions";
 import { createStore, applyMiddleware } from "redux";
 import { Provider, connect } from "react-redux";
@@ -36,6 +38,8 @@ const mapDispatchToProps = (dispatch) => {
     editShowing: (updatedFilm, filmId) =>
       dispatch(editShowing({ updatedFilm, filmId })),
     showShowingsOfThatDay: () => dispatch(showShowingsOfThatDay()),
+    incrementCounter: () => dispatch(incrementCounter()),
+    decrementCounter: () => dispatch(decrementCounter()),
   };
 };
 

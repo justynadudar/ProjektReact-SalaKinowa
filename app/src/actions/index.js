@@ -8,7 +8,8 @@ const SHOW_ALL = "SHOW_ALL";
 const ADD_SHOWING = "ADD_SHOWING";
 const EDIT_SHOWING = "EDIT_SHOWING";
 const SHOW_SHOWINGS_OF_THAT_DAY = "SHOW_SHOWINGS_OF_THAT_DAY";
-
+const INCREMENT_COUNTER = "INCREMENT_COUNTER";
+const DECREMENT_COUNTER = "DECREMENT_COUNTER";
 export const fetchDataFailure = (error) => {
   return {
     type: FETCH_DATA_FAILURE,
@@ -53,6 +54,12 @@ export const editShowingAction = (updatedFilm, filmId) => ({
   updatedFilm: updatedFilm,
   filmId: filmId,
 });
+export const incrementCounterAction = () => ({
+  type: INCREMENT_COUNTER,
+});
+export const decrementCounterAction = () => ({
+  type: DECREMENT_COUNTER,
+});
 
 export const getData = () => (dispatch) => {
   return axios
@@ -82,7 +89,6 @@ export const editFilm =
 export const deleteFilm =
   ({ id }) =>
   (dispatch) => {
-    console.log(id);
     axios
       .delete(`http://localhost:3001/orders/${id}`)
       .then((response) => dispatch(deleteFilmAction(response.data, id)))
@@ -113,3 +119,13 @@ export const editShowing =
       .then((response) => dispatch(editShowingAction(response.data, filmId)))
       .catch((err) => dispatch(fetchDataFailure(err.data)));
   };
+
+export const incrementCounter = () => (dispatch) => {
+  dispatch(incrementCounterAction());
+};
+export const decrementCounter = () => (dispatch) => {
+  dispatch(decrementCounterAction());
+};
+
+// export const incrementCounter = () => incrementCounterAction();
+// export const decrementCounter = () => decrementCounterAction();

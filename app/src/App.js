@@ -10,96 +10,98 @@ import Navbar from "./Navbar";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App({
-    getData,
-    addFilm,
-    editFilm,
-    deleteFilm,
-    films,
-    addShowing,
-    editShowing,
-    showShowingsOfThatDay,
+  getData,
+  addFilm,
+  editFilm,
+  deleteFilm,
+  films,
+  addShowing,
+  editShowing,
+  showShowingsOfThatDay,
+  incrementCounter,
+  decrementCounter,
 }) {
-    return (
-        <Router>
-            <Navbar />
-            <Route exact path="/buyTicket" render={() => <BuyTicket />} />
-            <Route
-                exact
-                path="/"
-                render={() => (
-                    <Checkout
-                        getData={getData}
-                        showShowingsOfThatDay={showShowingsOfThatDay}
-                        addFilm={addFilm}
-                        films={films}
-                        addShowing={addShowing}
-                    />
-                )}
-            />
-            <Route
-                path="/addFilm"
-                render={() => <AddFilm addFilm={addFilm} getData={getData} />}
-            />
-            <Route
-                path="/editFilm/:id"
-                render={({ match }) => (
-                    <EditFilm
-                        editFilm={editFilm}
-                        id={Number(match.params.id)}
-                        films={films}
-                        getData={getData}
-                    />
-                )}
-            />
-            <Route
-                path="/addShowing"
-                render={() => (
-                    <AddShowing
-                        showShowingsOfThatDay={showShowingsOfThatDay}
-                        addShowing={addShowing}
-                        films={films}
-                        getData={getData}
-                    />
-                )}
-            />
+  return (
+    <Router>
+      <Navbar />
+      <Route exact path="/buyTicket" render={() => <BuyTicket />} />
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <Checkout
+            getData={getData}
+            showShowingsOfThatDay={showShowingsOfThatDay}
+            addFilm={addFilm}
+            films={films}
+            addShowing={addShowing}
+          />
+        )}
+      />
+      <Route
+        path="/addFilm"
+        render={() => <AddFilm addFilm={addFilm} getData={getData} />}
+      />
+      <Route
+        path="/editFilm/:id"
+        render={({ match }) => (
+          <EditFilm
+            editFilm={editFilm}
+            id={Number(match.params.id)}
+            films={films}
+            getData={getData}
+          />
+        )}
+      />
+      <Route
+        path="/addShowing"
+        render={({ history }) => (
+          <AddShowing
+            showShowingsOfThatDay={showShowingsOfThatDay}
+            addShowing={addShowing}
+            films={films}
+            getData={getData}
+            history={history}
+          />
+        )}
+      />
 
-            <Route
-                path="/editShowing"
-                render={({ location }) => (
-                    <EditShowing
-                        location={location}
-                        editShowing={editShowing}
-                        films={films}
-                        getData={getData}
-                        addShowing={addShowing}
-                    />
-                )}
-            />
-            <Route
-                path="/showings"
-                render={() => (
-                    <ShowingsList
-                        getData={getData}
-                        showShowingsOfThatDay={showShowingsOfThatDay}
-                        addFilm={addFilm}
-                        films={films}
-                        addShowing={addShowing}
-                    />
-                )}
-            />
+      <Route
+        path="/editShowing"
+        render={({ location }) => (
+          <EditShowing
+            location={location}
+            editShowing={editShowing}
+            showShowingsOfThatDay={showShowingsOfThatDay}
+            films={films}
+            getData={getData}
+            addShowing={addShowing}
+          />
+        )}
+      />
+      <Route
+        path="/showings"
+        render={() => (
+          <ShowingsList
+            getData={getData}
+            showShowingsOfThatDay={showShowingsOfThatDay}
+            addFilm={addFilm}
+            films={films}
+            addShowing={addShowing}
+            incrementCounter={incrementCounter}
+            decrementCounter={decrementCounter}
+          />
+        )}
+      />
 
-            <Route
-                path="/films"
-                render={() => (
-                    <FilmsList
-                        getData={getData}
-                        deleteFilm={deleteFilm}
-                        films={films}
-                    />
-                )}
-            />
-        </Router>
-    );
+      <Route
+        path="/films"
+        render={() => (
+          <FilmsList getData={getData} deleteFilm={deleteFilm} films={films} />
+        )}
+      />
+    </Router>
+  );
 }
 
 export default App;

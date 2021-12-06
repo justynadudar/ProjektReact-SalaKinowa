@@ -1,6 +1,6 @@
 import React from "react";
 import "./style/AddShowing.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { BsArrowLeftShort } from "react-icons/bs";
 
 class AddShowing extends React.Component {
@@ -10,6 +10,7 @@ class AddShowing extends React.Component {
       textInput: "",
       dateInput: "",
       timeInput: "",
+      status: false,
     };
   }
   componentDidMount() {
@@ -32,9 +33,9 @@ class AddShowing extends React.Component {
     });
   };
 
-  addShowingToShowingList(films) {
+  addShowingToShowingList() {
     const showingId = Math.floor(Math.random() * 99999) + 1;
-    const updatedElement = films.data.find(
+    const updatedElement = this.props.films.data.find(
       (element) => element.title === this.state.textInput
     );
     const newShowing = {
@@ -56,10 +57,15 @@ class AddShowing extends React.Component {
       ],
     };
     this.props.addShowing(newShowing, updatedElement.id);
+    this.props.getData();
+    this.props.showShowingsOfThatDay();
+    this.setState({ status: true });
   }
 
   render() {
     const { films } = this.props;
+    const { status } = this.state;
+    if (status === true) return <Redirect to="/showings" />;
     return (
       <div className="AddShowing">
         <div>
@@ -96,9 +102,7 @@ class AddShowing extends React.Component {
             value={this.timeInput}
             onChange={this.changeTime}
           />
-          <button onClick={() => this.addShowingToShowingList(films)}>
-            <Link to="/showings">Dodaj</Link>
-          </button>
+          <button onClick={() => this.addShowingToShowingList()}>Dodaj</button>
         </div>
       </div>
     );

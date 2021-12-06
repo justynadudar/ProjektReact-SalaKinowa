@@ -39,52 +39,70 @@ export default function films(state = initialState, action) {
     case "SHOW_ALL":
       newState = Object.assign({}, state);
       newState.data = action.films;
+
       newState.loaded = true;
       return newState;
 
-    // case "SHOW_SHOWINGS_OF_THAT_DAY":
-    //   let today = new Date();
-    //   let date =
-    //     today.getFullYear() +
-    //     "-" +
-    //     ("0" + (today.getMonth() + 1)).slice(-2) +
-    //     "-" +
-    //     ("0" + today.getDate()).slice(-2);
+    case "INCREMENT_COUNTER":
+      return Object.assign({}, state, {
+        counter: ++state.counter,
+      });
 
-    //   newState = Object.assign({}, state);
-    //   newState.data.forEach((film) => {
-    //     film.showings = film.showings.filter(
-    //       (showing) => showing.date === date
-    //     );
-    //   });
-
-    //   newState.data = newState.data.filter(
-    //     (film) => film.showings.length !== 0
-    //   );
-    //   newState.loaded = true;
-    //   return newState;
+    case "DECREMENT_COUNTER":
+      return Object.assign({}, state, {
+        counter: --state.counter,
+      });
 
     case "SHOW_SHOWINGS_OF_THAT_DAY":
       let today = new Date();
-      let stringToday =
-        today.getFullYear() +
-        "-" +
-        ("0" + (today.getMonth() + 1)).slice(-2) +
-        "-" +
-        ("0" + (today.getDate() + state.counter)).slice(-2);
+      if (state.counter > 0) {
+        let stringToday =
+          today.getFullYear() +
+          "-" +
+          ("0" + (today.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + (today.getDate() + state.counter)).slice(-2);
 
-      newState = Object.assign({}, state);
-      newState.data.forEach((film) => {
-        film.showings = film.showings.filter(
-          (showing) => showing.date === stringToday
+        newState = Object.assign({}, state);
+        newState.data.forEach((film) => {
+          film.showings = film.showings.filter(
+            (showing) => showing.date === stringToday
+          );
+          return film;
+        });
+
+        newState.data = newState.data.filter(
+          (film) => film.showings.length !== 0
         );
-      });
+        newState.loaded = true;
+        return newState;
+      } else if (state.counter == 0) {
+        let stringToday =
+          today.getFullYear() +
+          "-" +
+          ("0" + (today.getMonth() + 1)).slice(-2) +
+          "-" +
+          ("0" + (today.getDate() + state.counter)).slice(-2);
 
-      newState.data = newState.data.filter(
-        (film) => film.showings.length !== 0
-      );
-      newState.loaded = true;
-      return newState;
+        let stringTodayTime = today.getHours() + ":" + today.getMinutes();
+
+        newState = Object.assign({}, state);
+        newState.data.forEach((film) => {
+          film.showings = film.showings.filter(
+            (showing) => showing.date === stringToday
+          );
+          film.showings = film.showings.filter(
+            (showing) => showing.hour === stringTodayTime
+          );
+          return film;
+        });
+
+        newState.data = newState.data.filter(
+          (film) => film.showings.length !== 0
+        );
+        newState.loaded = true;
+        return newState;
+      }
 
     case "ADD_FILM":
       return Object.assign({}, state, {

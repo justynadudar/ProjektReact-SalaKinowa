@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./style/EditFilm.css";
 import { BsArrowLeftShort } from "react-icons/bs";
 
@@ -10,8 +10,10 @@ class EditShowing extends React.Component {
       textInput: "",
       dateInput: "",
       timeInput: "",
+      status: false,
     };
   }
+
   componentDidMount() {
     this.props.getData();
   }
@@ -35,18 +37,15 @@ class EditShowing extends React.Component {
 
   editShowingInShowingList(films) {
     const showingId = this.props.location.state.showingId;
-    console.log(showingId);
     const updatedFilm = films.data.find(
       (element) => element.id === this.props.location.state.filmId
     );
     const updatedFilmWithoutThisShit = films.data.find(
       (element) => element.title === this.state.textInput
     );
-    console.log(updatedFilm);
     const updatedShowing = updatedFilm.showings.find(
       (element) => element.showingId === Number(showingId)
     );
-    console.log(updatedShowing);
     const editedShowing = {
       showingId: Number(showingId),
       date: this.state.dateInput,
@@ -79,12 +78,16 @@ class EditShowing extends React.Component {
       );
 
       this.props.editShowing(updatedFilm, this.props.location.state.filmId);
+      this.props.getData();
+      this.props.showShowingsOfThatDay();
+      this.setState({ status: true });
     }
   }
 
   render() {
     const { films } = this.props;
-
+    const { status } = this.state;
+    if (status === true) return <Redirect to="/showings" />;
     return (
       <div className="AddShowing">
         <div>
@@ -122,7 +125,7 @@ class EditShowing extends React.Component {
             onChange={this.changeTime}
           />
           <button onClick={() => this.editShowingInShowingList(films)}>
-            <Link to="/showings">Edytuj</Link>
+            Edytuj
           </button>
         </div>
       </div>

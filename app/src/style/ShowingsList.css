@@ -32,6 +32,11 @@
   border: 1px solid #ccc;
 }
 
+.showingsList .changeDayButtons button:hover {
+  background-color: #ccc;
+  cursor: pointer;
+}
+
 .showingsList .addShowingButton {
   margin: 10px 0;
   height: 3vh;
