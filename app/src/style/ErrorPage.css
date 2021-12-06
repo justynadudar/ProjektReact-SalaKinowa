@@ -1,0 +1,15 @@
+.ErrorPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.ErrorPage p {
+    font-size: 60px;
+}
+
+.ErrorPage p a {
+    color: darkmagenta;
+}
