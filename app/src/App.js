@@ -24,7 +24,11 @@ function App({
   return (
     <Router>
       <Navbar />
-      <Route exact path="/buyTicket" render={() => <BuyTicket />} />
+      <Route
+        exact
+        path="/buyTicket"
+        render={() => <BuyTicket films={films} />}
+      />
       <Route
         exact
         path="/"
@@ -55,13 +59,12 @@ function App({
       />
       <Route
         path="/addShowing"
-        render={({ history }) => (
+        render={() => (
           <AddShowing
             showShowingsOfThatDay={showShowingsOfThatDay}
             addShowing={addShowing}
             films={films}
             getData={getData}
-            history={history}
           />
         )}
       />
