@@ -1,7 +1,6 @@
 import React from "react";
 import Showing from "./Showing";
 import "./style/Checkout.css";
-import { Link } from "react-router-dom";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 class Checkout extends React.Component {

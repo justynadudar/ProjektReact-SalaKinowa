@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import "./style/BuyTicket.css";
 import { BsArrowLeftShort } from "react-icons/bs";
-import Error from "./Error";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-function BuyTicket({}) {
+function BuyTicket({ films }) {
     let history = useHistory();
     let cinemaHall = [
         [1, 2, 3, 4, 5, 6, 7, 8],
@@ -28,10 +27,10 @@ function BuyTicket({}) {
                 <h2>Kup bilet / Sala 1</h2>
                 <div className="cinemaHall">
                     {cinemaHall.map((row, rowNumber) => (
-                        <div className="row">
+                        <div key={Math.random()} className="row">
                             {row.map((place, placeNumber) => {
                                 return (
-                                    <div className="place">
+                                    <div key={Math.random()} className="place">
                                         {placeNumber + 1}
                                     </div>
                                 );

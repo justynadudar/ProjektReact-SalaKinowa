@@ -22,7 +22,11 @@ function App({
     return (
         <Router>
             <Navbar />
-            <Route exact path="/buyTicket" render={() => <BuyTicket />} />
+            <Route
+                exact
+                path="/buyTicket"
+                render={() => <BuyTicket films={films} />}
+            />
             <Route
                 exact
                 path="/"
