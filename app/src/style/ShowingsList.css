@@ -1,64 +1,74 @@
 .showingsList {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .showingsList .showings {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 80%;
-    list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  list-style-type: none;
 }
 
 .showingsList .changeDayButtons {
-    margin: 20px 0 10px;
-    height: 3vh;
-    width: 80%;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 10px;
+  margin: 20px 0 10px;
+  height: 3vh;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
 }
 .showingsList .changeDayButtons button {
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ddd;
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-    border: 1px solid #ccc;
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #ccc;
 }
 
 .showingsList .changeDayButtons button:hover {
   background-color: #ccc;
   cursor: pointer;
 }
+.showingsList .changeDayButtons .buttonToRemove {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
+.showingsList .changeDayButtons .buttonToRemove:hover {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+}
 
 .showingsList .addShowingButton {
-    margin: 10px 0;
-    height: 3vh;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    background-color: #eee;
-    border-radius: 10px;
+  margin: 10px 0;
+  height: 3vh;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  background-color: #eee;
+  border-radius: 10px;
 }
 
 .showingsList .addShowingButton a {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ddd;
-    border-radius: 10px;
-    font-size: 20px;
-    color: white;
-    border: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ddd;
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #ccc;
 }
 
 .showingsList .addShowingButton a:hover {
-    background-color: #ccc;
+  background-color: #ccc;
 }

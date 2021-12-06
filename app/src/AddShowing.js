@@ -50,7 +50,7 @@ class AddShowing extends React.Component {
           date: this.state.dateInput,
           hour: this.state.timeInput,
           occupiedSeats: [],
-          cinemaHall: { nr: 1, capacity: 100 },
+          cinemaHall: { nr: 1, capacity: 40 },
           numberOfSeatsSold: 0,
           numberOfAvaibleSeats: 0,
         },

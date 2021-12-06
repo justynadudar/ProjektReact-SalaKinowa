@@ -27,7 +27,16 @@ function App({
       <Route
         exact
         path="/buyTicket"
-        render={() => <BuyTicket films={films} />}
+        render={({ location }) => (
+          <BuyTicket
+            location={location}
+            films={films}
+            editShowing={editShowing}
+            showShowingsOfThatDay={showShowingsOfThatDay}
+            films={films}
+            getData={getData}
+          />
+        )}
       />
       <Route
         exact

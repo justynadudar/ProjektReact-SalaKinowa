@@ -69,7 +69,7 @@ class Checkout extends React.Component {
               <GrFormPreviousLink />
             </button>
           ) : (
-            <div></div>
+            <button className="buttonToRemove"></button>
           )}
 
           <p>{string}</p>
