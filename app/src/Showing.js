@@ -11,7 +11,7 @@ function Showing({ film }) {
             <Link
               to={{
                 pathname: `/editShowing/${showing.showingId}`,
-                state: { modal: true },
+                state: { filmId: film.id },
               }}
             >
               {showing.hour}

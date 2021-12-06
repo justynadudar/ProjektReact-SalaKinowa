@@ -1,9 +1,9 @@
 import React from "react";
-import "./style/Modyfication.css";
+import "./style/AddShowing.css";
 import { Link } from "react-router-dom";
 import { BsArrowLeftShort } from "react-icons/bs";
 
-class Modyfication extends React.Component {
+class AddShowing extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +56,7 @@ class Modyfication extends React.Component {
       ],
     };
     this.props.addShowing(newShowing, updatedElement.id);
+    this.props.showShowingsOfThatDay();
   }
 
   render() {
@@ -105,4 +106,4 @@ class Modyfication extends React.Component {
   }
 }
 
-export default Modyfication;
+export default AddShowing;

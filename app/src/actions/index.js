@@ -106,10 +106,11 @@ export const addShowing =
   };
 
 export const editShowing =
-  ({ editedShowing, showingId, filmId }) =>
+  ({ editedShowing, filmId }) =>
   (dispatch) => {
+    alert("jesten");
     axios
-      .put(`http://localhost:3001/orders/${showingId}`, editedShowing)
+      .put(`http://localhost:3001/orders/${filmId}`, editedShowing)
       .then((response) => dispatch(editShowingAction(response.data, filmId)))
       .catch((err) => dispatch(fetchDataFailure(err.data)));
   };

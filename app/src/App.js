@@ -1,5 +1,6 @@
 import ShowingsList from "./ShowingsList";
-import Modyfication from "./Modyfication";
+import AddShowing from "./AddShowing";
+import EditShowing from "./EditShowing";
 import AddFilm from "./AddFilm";
 import EditFilm from "./EditFilm";
 import Home from "./Home";
@@ -37,7 +38,8 @@ function App({
       <Route
         path="/addShowing"
         render={() => (
-          <Modyfication
+          <AddShowing
+            showShowingsOfThatDay={showShowingsOfThatDay}
             addShowing={addShowing}
             films={films}
             getData={getData}
@@ -46,8 +48,9 @@ function App({
       />
       <Route
         path="/editShowing/:id"
-        render={({ match }) => (
-          <Modyfication
+        render={({ match, location }) => (
+          <EditShowing
+            location={location}
             editShowing={editShowing}
             showingId={match.params.id}
             films={films}

@@ -72,9 +72,15 @@ export default function films(state = initialState, action) {
       return newState;
 
     case "EDIT_SHOWING":
+      alert("edytujemy!");
       newState = Object.assign({}, state);
       newState.data.forEach((film, index, tab) => {
-        if (film.id === action.editedFilm.id) tab[index] = action.editedFilm;
+        if (film.id === action.filmId)
+          tab[index].showings.forEach((showing, showId, showTab) => {
+            if (showing.showingId === action.editedShowing.showingId)
+              showTab[showId] = action.editedShowing;
+            return showing;
+          });
         return film;
       });
       newState.loaded = true;
