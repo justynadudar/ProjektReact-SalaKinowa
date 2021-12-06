@@ -1,6 +1,8 @@
 import Film from "./Film.js";
 import { Link } from "react-router-dom";
 import "./style/Showing.css";
+import PropTypes from "prop-types";
+
 function Showing({ film, destination }) {
     return (
         <div className="Showing">
@@ -41,3 +43,14 @@ function Showing({ film, destination }) {
 }
 
 export default Showing;
+
+Showing.propTypes = {
+    film: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        duration: PropTypes.string,
+        imgUrl: PropTypes.string,
+        showings: PropTypes.array,
+    }).isRequired,
+    destination: PropTypes.string.isRequired,
+};

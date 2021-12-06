@@ -1,45 +1,28 @@
 [
-  {
-    "id": 58446,
-    "title": "nowyti",
-    "duration": "124",
-    "imgUrl": "https://wyszukiwarkafilmow.pl/img/movies/127.jpg",
-    "showings": [
-      {
-        "showingId": 47918,
-        "date": "2021-12-07",
-        "hour": "23:29",
-        "occupiedSeats": [{ "row": 4, "place": 4 }],
-        "cinemaHall": { "nr": 1, "capacity": 40 },
-        "numberOfSeatsSold": 1,
-        "numberOfAvaibleSeats": 39
-      }
-    ]
-  },
-  {
-    "id": 54801,
-    "title": "gdzie jest nemo",
-    "duration": "123",
-    "imgUrl": "https://cdn.gracza.pl/galeria/gry13/257906921d.jpg",
-    "showings": [
-      {
-        "showingId": 74333,
-        "date": "2021-12-06",
-        "hour": "23:16",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 40 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      },
-      {
-        "showingId": 84333,
-        "date": "2021-12-06",
-        "hour": "21:22",
-        "occupiedSeats": [],
-        "cinemaHall": { "nr": 1, "capacity": 40 },
-        "numberOfSeatsSold": 0,
-        "numberOfAvaibleSeats": 0
-      }
-    ]
-  }
+    {
+        "id": 16706,
+        "title": "James Bond",
+        "duration": "123",
+        "imgUrl": "https://bi.im-g.pl/im/2e/0d/19/z26269742IH,Okladka-do-plyty--No-Time-To-Die--z-muzyka-Hansa-Z.jpg",
+        "showings": [
+            {
+                "showingId": 39592,
+                "date": "2021-12-07",
+                "hour": "09:10",
+                "occupiedSeats": [],
+                "cinemaHall": { "nr": 1, "capacity": 40 },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 0
+            },
+            {
+                "showingId": 12786,
+                "date": "2021-12-06",
+                "hour": "23:00",
+                "occupiedSeats": [],
+                "cinemaHall": { "nr": 1, "capacity": 40 },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 0
+            }
+        ]
+    }
 ]
