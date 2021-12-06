@@ -1,0 +1,14 @@
+.Checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px 0;
+}
+
+.Checkout .showings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    list-style-type: none;
+}
