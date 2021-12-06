@@ -3,6 +3,7 @@ import Showing from "./Showing";
 import "./style/ShowingsList.css";
 import { Link } from "react-router-dom";
 import { BiAddToQueue } from "react-icons/bi";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 
 class ShowingsList extends React.Component {
     componentDidMount() {
@@ -15,6 +16,15 @@ class ShowingsList extends React.Component {
 
         return (
             <div className="showingsList">
+                <div className="changeDayButtons">
+                    <button>
+                        <GrFormPreviousLink />
+                    </button>
+                    <p>06.12.2021</p>
+                    <button>
+                        <GrFormNextLink />
+                    </button>
+                </div>
                 <div className="addShowingButton">
                     <Link to="/addShowing">
                         <BiAddToQueue />
