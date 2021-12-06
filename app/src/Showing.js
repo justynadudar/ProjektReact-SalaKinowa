@@ -10,8 +10,8 @@ function Showing({ film }) {
           <p key={Math.random()}>
             <Link
               to={{
-                pathname: `/editShowing/${showing.showingId}`,
-                state: { filmId: film.id },
+                pathname: `/editShowing`,
+                state: { showingId: showing.showingId, filmId: film.id },
               }}
             >
               {showing.hour}

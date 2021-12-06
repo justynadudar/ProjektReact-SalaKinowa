@@ -51,14 +51,14 @@ function App({
       />
 
       <Route
-        path="/editShowing/:id"
-        render={({ match, location }) => (
+        path="/editShowing"
+        render={({ location }) => (
           <EditShowing
             location={location}
             editShowing={editShowing}
-            showingId={match.params.id}
             films={films}
             getData={getData}
+            addShowing={addShowing}
           />
         )}
       />

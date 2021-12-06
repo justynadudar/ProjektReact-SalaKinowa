@@ -14,7 +14,6 @@ class AddShowing extends React.Component {
   }
   componentDidMount() {
     this.props.getData();
-    this.props.showShowingsOfThatDay();
   }
 
   changeText = (e) => {

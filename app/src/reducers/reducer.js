@@ -2,6 +2,28 @@ const initialState = {
   loaded: false,
   data: [],
   error: "",
+  cinemaHalls: [
+    {
+      hallId: 1,
+      capacity: 84,
+    },
+    {
+      hallId: 2,
+      capacity: 60,
+    },
+    {
+      hallId: 3,
+      capacity: 50,
+    },
+    {
+      hallId: 4,
+      capacity: 60,
+    },
+    {
+      hallId: 5,
+      capacity: 50,
+    },
+  ],
 };
 
 export default function films(state = initialState, action) {
