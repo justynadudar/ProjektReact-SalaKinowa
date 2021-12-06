@@ -25,14 +25,17 @@ function App({
       <Route exact path="/" component={Home} />
       <Route
         path="/addFilm"
-        render={() => (
-          <AddFilm addFilm={addFilm} films={films} getData={getData} />
-        )}
+        render={() => <AddFilm addFilm={addFilm} getData={getData} />}
       />
       <Route
         path="/editFilm/:id"
         render={({ match }) => (
-          <EditFilm editFilm={editFilm} id={match.params.id} films={films} />
+          <EditFilm
+            editFilm={editFilm}
+            id={Number(match.params.id)}
+            films={films}
+            getData={getData}
+          />
         )}
       />
       <Route
@@ -46,6 +49,7 @@ function App({
           />
         )}
       />
+
       <Route
         path="/editShowing/:id"
         render={({ match, location }) => (
@@ -70,15 +74,11 @@ function App({
           />
         )}
       />
+
       <Route
         path="/films"
         render={() => (
-          <FilmsList
-            getData={getData}
-            deleteFilm={deleteFilm}
-            addFilm={addFilm}
-            films={films}
-          />
+          <FilmsList getData={getData} deleteFilm={deleteFilm} films={films} />
         )}
       />
       <Route path="/cinemahalls" component={CinemaHallList} />
@@ -87,6 +87,3 @@ function App({
 }
 
 export default App;
-
-/* <Route path='/users' element={UsersList}/>
-<Route path='/clients/:id' component={ClientEdit}/> */

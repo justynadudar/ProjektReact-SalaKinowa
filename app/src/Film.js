@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./style/Film.css";
 import { Link } from "react-router-dom";
 import { AiFillDelete, AiTwotoneEdit } from "react-icons/ai";
@@ -34,3 +35,14 @@ function Film({ film, deleteFilm }) {
 }
 
 export default Film;
+
+Film.propTypes = {
+    film: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        duration: PropTypes.string,
+        imgUrl: PropTypes.string,
+        showings: PropTypes.array,
+    }).isRequired,
+    deleteFilm: PropTypes.func,
+};
