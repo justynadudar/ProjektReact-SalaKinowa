@@ -48,9 +48,9 @@ export const addShowingAction = (newShowing, id) => ({
   id: id,
 });
 
-export const editShowingAction = (editedShowing, filmId) => ({
+export const editShowingAction = (updatedFilm, filmId) => ({
   type: EDIT_SHOWING,
-  editedShowing: editedShowing,
+  updatedFilm: updatedFilm,
   filmId: filmId,
 });
 
@@ -106,11 +106,10 @@ export const addShowing =
   };
 
 export const editShowing =
-  ({ editedShowing, filmId }) =>
+  ({ updatedFilm, filmId }) =>
   (dispatch) => {
-    alert("jesten");
     axios
-      .put(`http://localhost:3001/orders/${filmId}`, editedShowing)
+      .put(`http://localhost:3001/orders/${filmId}`, updatedFilm)
       .then((response) => dispatch(editShowingAction(response.data, filmId)))
       .catch((err) => dispatch(fetchDataFailure(err.data)));
   };

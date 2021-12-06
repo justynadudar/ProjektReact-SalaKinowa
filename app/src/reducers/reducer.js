@@ -14,7 +14,6 @@ export default function films(state = initialState, action) {
         error: action.payload,
       };
     case "SHOW_ALL":
-      console.log(state.data);
       newState = Object.assign({}, state);
       newState.data = action.films;
       newState.loaded = true;
@@ -72,15 +71,9 @@ export default function films(state = initialState, action) {
       return newState;
 
     case "EDIT_SHOWING":
-      alert("edytujemy!");
       newState = Object.assign({}, state);
       newState.data.forEach((film, index, tab) => {
-        if (film.id === action.filmId)
-          tab[index].showings.forEach((showing, showId, showTab) => {
-            if (showing.showingId === action.editedShowing.showingId)
-              showTab[showId] = action.editedShowing;
-            return showing;
-          });
+        if (film.id === action.updatedFilm.id) tab[index] = action.updatedFilm;
         return film;
       });
       newState.loaded = true;

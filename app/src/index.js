@@ -33,8 +33,8 @@ const mapDispatchToProps = (dispatch) => {
     editFilm: (editedFilm, id) => dispatch(editFilm({ editedFilm, id })),
     deleteFilm: (id) => dispatch(deleteFilm({ id })),
     addShowing: (newShowing, id) => dispatch(addShowing({ newShowing, id })),
-    editShowing: (editedShowing, showingId, filmId) =>
-      dispatch(editShowing({ editedShowing, showingId, filmId })),
+    editShowing: (updatedFilm, filmId) =>
+      dispatch(editShowing({ updatedFilm, filmId })),
     showShowingsOfThatDay: () => dispatch(showShowingsOfThatDay()),
   };
 };

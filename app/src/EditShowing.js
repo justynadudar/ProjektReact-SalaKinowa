@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style/EditFilm.css";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { useLocation } from "react-router";
 
 class EditShowing extends React.Component {
   constructor(props) {
@@ -29,10 +28,11 @@ class EditShowing extends React.Component {
 
   editShowingInShowingList(films) {
     const showingId = this.props.showingId;
-    const updatedElement = films.data.find(
+    const updatedFilm = films.data.find(
       (element) => element.id === this.props.location.state.filmId
     );
-    const updatedShowing = updatedElement.showings.find(
+
+    const updatedShowing = updatedFilm.showings.find(
       (element) => element.showingId === Number(showingId)
     );
     const editedShowing = {
@@ -44,12 +44,12 @@ class EditShowing extends React.Component {
       numberOfSeatsSold: updatedShowing.numberOfSeatsSold,
       numberOfAvaibleSeats: updatedShowing.numberOfAvaibleSeats,
     };
-    this.props.editShowing(
-      editedShowing,
-      showingId,
-      this.props.location.state.filmId
-    );
-    this.props.getData();
+    updatedFilm.showings.forEach((showing, showId, showTab) => {
+      if (showing.showingId === Number(showingId))
+        showTab[showId] = editedShowing;
+    });
+
+    this.props.editShowing(updatedFilm, this.props.location.state.filmId);
   }
 
   render() {
