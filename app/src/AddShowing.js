@@ -8,7 +8,7 @@ class AddShowing extends React.Component {
     super(props);
     this.state = {
       textInput: "",
-      dateInput: "",
+      dateInput: this.props.location.state.todayDate,
       timeInput: "",
       status: false,
     };
@@ -64,7 +64,7 @@ class AddShowing extends React.Component {
 
   render() {
     const { films } = this.props;
-    const { status } = this.state;
+    const { status, dateInput } = this.state;
     if (status === true) return <Redirect to="/showings" />;
     return (
       <div className="AddShowing">
@@ -92,7 +92,7 @@ class AddShowing extends React.Component {
           <input
             type="date"
             name="date"
-            value={this.dateInput}
+            value={dateInput}
             onChange={this.changeDate}
           />
           <label htmlFor="time">Godzina:</label>

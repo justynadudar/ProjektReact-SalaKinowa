@@ -27,7 +27,6 @@ function EditFilm({ editFilm, id, films, getData }) {
     else if (urlInput.length === 0) setEmptyImageField(true);
     else if (!isValidImageURL(urlInput)) setIsImageFieldNotValid(true);
     else {
-      const ido = films.data.find((film) => film.id === Number(id));
       const editedFilm = {
         id: id,
         title: textInput,

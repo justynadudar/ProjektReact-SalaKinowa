@@ -76,7 +76,7 @@ export default function films(state = initialState, action) {
         );
         newState.loaded = true;
         return newState;
-      } else if (state.counter == 0) {
+      } else if (state.counter === 0) {
         let stringToday =
           today.getFullYear() +
           "-" +
@@ -92,7 +92,7 @@ export default function films(state = initialState, action) {
             (showing) => showing.date === stringToday
           );
           film.showings = film.showings.filter(
-            (showing) => showing.hour === stringTodayTime
+            (showing) => showing.hour >= stringTodayTime
           );
           return film;
         });
@@ -102,7 +102,7 @@ export default function films(state = initialState, action) {
         );
         newState.loaded = true;
         return newState;
-      }
+      } else return state;
 
     case "ADD_FILM":
       return Object.assign({}, state, {

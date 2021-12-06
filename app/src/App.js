@@ -39,6 +39,8 @@ function App({
             addFilm={addFilm}
             films={films}
             addShowing={addShowing}
+            incrementCounter={incrementCounter}
+            decrementCounter={decrementCounter}
           />
         )}
       />
@@ -59,8 +61,9 @@ function App({
       />
       <Route
         path="/addShowing"
-        render={() => (
+        render={({ location }) => (
           <AddShowing
+            location={location}
             showShowingsOfThatDay={showShowingsOfThatDay}
             addShowing={addShowing}
             films={films}

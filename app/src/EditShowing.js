@@ -10,8 +10,21 @@ class EditShowing extends React.Component {
       textInput: "",
       dateInput: "",
       timeInput: "",
+      updatedFilm: {},
+      updatedShowing: {},
+      showingId: Number(this.props.location.state.showingId),
       status: false,
     };
+    this.state.updatedFilm = this.props.films.data.find(
+      (element) => element.id === this.props.location.state.filmId
+    );
+    this.state.updatedShowing = this.state.updatedFilm.showings.find(
+      (element) => element.showingId === this.state.showingId
+    );
+
+    this.state.textInput = this.state.updatedFilm.title;
+    this.state.dateInput = this.state.updatedShowing.date;
+    this.state.timeInput = this.state.updatedShowing.hour;
   }
 
   componentDidMount() {
@@ -36,33 +49,31 @@ class EditShowing extends React.Component {
   };
 
   editShowingInShowingList(films) {
-    const showingId = this.props.location.state.showingId;
-    const updatedFilm = films.data.find(
-      (element) => element.id === this.props.location.state.filmId
-    );
     const updatedFilmWithoutThisShit = films.data.find(
       (element) => element.title === this.state.textInput
     );
-    const updatedShowing = updatedFilm.showings.find(
-      (element) => element.showingId === Number(showingId)
-    );
     const editedShowing = {
-      showingId: Number(showingId),
+      showingId: this.state.showingId,
       date: this.state.dateInput,
       hour: this.state.timeInput,
-      occupiedSeats: updatedShowing.occupiedSeats,
-      cinemaHall: updatedShowing.cinemaHall,
-      numberOfSeatsSold: updatedShowing.numberOfSeatsSold,
-      numberOfAvaibleSeats: updatedShowing.numberOfAvaibleSeats,
+      occupiedSeats: this.state.updatedShowing.occupiedSeats,
+      cinemaHall: this.state.updatedShowing.cinemaHall,
+      numberOfSeatsSold: this.state.updatedShowing.numberOfSeatsSold,
+      numberOfAvaibleSeats: this.state.updatedShowing.numberOfAvaibleSeats,
     };
-
     if (updatedFilmWithoutThisShit.id === this.props.location.state.filmId) {
-      updatedFilm.showings.forEach((showing, showId, showTab) => {
-        if (showing.showingId === Number(showingId))
+      this.state.updatedFilm.showings.forEach((showing, showId, showTab) => {
+        if (showing.showingId === this.state.showingId)
           showTab[showId] = editedShowing;
+        return showing;
       });
-
-      this.props.editShowing(updatedFilm, this.props.location.state.filmId);
+      this.props.editShowing(
+        this.state.updatedFilm,
+        this.props.location.state.filmId
+      );
+      this.props.getData();
+      this.props.showShowingsOfThatDay();
+      this.setState({ status: true });
     } else {
       const newOldShowing = {
         id: updatedFilmWithoutThisShit.id,
@@ -73,11 +84,18 @@ class EditShowing extends React.Component {
       };
 
       this.props.addShowing(newOldShowing, updatedFilmWithoutThisShit.id);
-      updatedFilm.showings = updatedFilm.showings.filter(
-        (showing) => showing.showingId !== Number(showingId)
+      const tmpElement = this.state.updatedFilm;
+      tmpElement.showings = tmpElement.showings.filter(
+        (showing) => showing.showingId !== this.state.showingId
       );
+      this.setState({
+        updatedFilm: tmpElement,
+      });
 
-      this.props.editShowing(updatedFilm, this.props.location.state.filmId);
+      this.props.editShowing(
+        this.state.updatedFilm,
+        this.props.location.state.filmId
+      );
       this.props.getData();
       this.props.showShowingsOfThatDay();
       this.setState({ status: true });
@@ -86,7 +104,8 @@ class EditShowing extends React.Component {
 
   render() {
     const { films } = this.props;
-    const { status } = this.state;
+    const { textInput, dateInput, timeInput, status } = this.state;
+
     if (status === true) return <Redirect to="/showings" />;
     return (
       <div className="AddShowing">
@@ -100,7 +119,7 @@ class EditShowing extends React.Component {
             type="text"
             list="films"
             name="title"
-            value={this.textInput}
+            value={textInput}
             onChange={this.changeText}
           />
           <datalist id="films">
@@ -114,14 +133,14 @@ class EditShowing extends React.Component {
           <input
             type="date"
             name="date"
-            value={this.state.dateInput}
+            value={dateInput}
             onChange={this.changeDate}
           />
           <label htmlFor="time">Godzina:</label>
           <input
             type="time"
             name="hour"
-            value={this.state.timeInput}
+            value={timeInput}
             onChange={this.changeTime}
           />
           <button onClick={() => this.editShowingInShowingList(films)}>
