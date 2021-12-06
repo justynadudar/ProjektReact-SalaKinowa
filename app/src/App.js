@@ -33,7 +33,6 @@ function App({
             films={films}
             editShowing={editShowing}
             showShowingsOfThatDay={showShowingsOfThatDay}
-            films={films}
             getData={getData}
           />
         )}

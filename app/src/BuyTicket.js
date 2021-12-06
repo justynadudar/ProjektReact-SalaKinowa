@@ -9,48 +9,139 @@ class BuyTicket extends React.Component {
     super(props);
     this.state = {
       cinemaHall: [
-        [1, 2, 3, 4, 5, 6, 7, 8],
-        [1, 2, 3, 4, 5, 6, 7, 8],
-        [1, 2, 3, 4, 5, 6, 7, 8],
-        [1, 2, 3, 4, 5, 6, 7, 8],
-        [1, 2, 3, 4, 5, 6, 7, 8],
+        [
+          { id: 1, isActive: false },
+          { id: 2, isActive: false },
+          { id: 3, isActive: false },
+          { id: 4, isActive: false },
+          { id: 5, isActive: false },
+          { id: 6, isActive: false },
+          { id: 7, isActive: false },
+          { id: 8, isActive: false },
+        ],
+        [
+          { id: 1, isActive: false },
+          { id: 2, isActive: false },
+          { id: 3, isActive: false },
+          { id: 4, isActive: false },
+          { id: 5, isActive: false },
+          { id: 6, isActive: false },
+          { id: 7, isActive: false },
+          { id: 8, isActive: false },
+        ],
+        [
+          { id: 1, isActive: false },
+          { id: 2, isActive: false },
+          { id: 3, isActive: false },
+          { id: 4, isActive: false },
+          { id: 5, isActive: false },
+          { id: 6, isActive: false },
+          { id: 7, isActive: false },
+          { id: 8, isActive: false },
+        ],
+        [
+          { id: 1, isActive: false },
+          { id: 2, isActive: false },
+          { id: 3, isActive: false },
+          { id: 4, isActive: false },
+          { id: 5, isActive: false },
+          { id: 6, isActive: false },
+          { id: 7, isActive: false },
+          { id: 8, isActive: false },
+        ],
+        [
+          { id: 1, isActive: false },
+          { id: 2, isActive: false },
+          { id: 3, isActive: false },
+          { id: 4, isActive: false },
+          { id: 5, isActive: false },
+          { id: 6, isActive: false },
+          { id: 7, isActive: false },
+          { id: 8, isActive: false },
+        ],
       ],
       updatedFilm: {},
       updatedShowing: {},
       showingId: Number(this.props.location.state.showingId),
+      numberOfSeatsSold: 0,
+      numberOfAvaibleSeats: 40,
       status: false,
     };
-    this.state.updatedFilm = this.props.films.data.find(
-      (element) => element.id === this.props.location.state.filmId
-    );
-
-    console.log(this.state.updatedFilm);
-    this.state.updatedShowing = this.state.updatedFilm.showings.find(
-      (element) => element.showingId === this.state.showingId
-    );
-    console.log(this.state.updatedShowing);
   }
 
   componentDidMount() {
     this.props.getData();
+    this.props.showShowingsOfThatDay();
+    const tmpFilm = this.props.films.data.find(
+      (element) => element.id === this.props.location.state.filmId
+    );
+    this.setState({ updatedFilm: tmpFilm });
+
+    const tmpShowing = tmpFilm.showings.find(
+      (element) => element.showingId === this.state.showingId
+    );
+
+    const tmpCinemaHall = this.state.cinemaHall;
+    tmpShowing.occupiedSeats.forEach((place) => {
+      tmpCinemaHall.forEach((row, rowId, rowTab) => {
+        if (place.row === rowId) {
+          rowTab[rowId].forEach((seat, seatId, seatTab) => {
+            if (place.place === seat.id) seatTab[seatId].id = "X";
+            return seat;
+          });
+        }
+        return row;
+      });
+      return place;
+    });
+
+    this.setState({
+      updatedShowing: tmpShowing,
+      numberOfSeatsSold: tmpShowing.numberOfSeatsSold,
+      numberOfAvaibleSeats: tmpShowing.numberOfAvaibleSeats,
+    });
+    this.setState({ cinemaHall: tmpCinemaHall });
   }
 
   choosePlace(row, place) {
-    console.log(this.state.updatedFilm);
     const newOccupiedPlace = {
       row: row,
-      place: place,
+      place: place.id,
     };
-    this.state.updatedShowing.occupiedSeats = [
-      ...this.state.updatedShowing.occupiedSeats,
+
+    const tmpupdatedShowing = this.state.updatedShowing;
+
+    tmpupdatedShowing.occupiedSeats = [
+      ...tmpupdatedShowing.occupiedSeats,
       newOccupiedPlace,
     ];
-    this.state.updatedShowing.numberOfSeatsSold++;
-    this.state.updatedShowing.numberOfAvaibleSeats--;
+    tmpupdatedShowing.numberOfSeatsSold = this.state.numberOfSeatsSold + 1;
+    tmpupdatedShowing.numberOfAvaibleSeats =
+      this.state.numberOfAvaibleSeats - 1;
+
+    this.setState({
+      numberOfSeatsSold: tmpupdatedShowing.numberOfSeatsSold,
+      numberOfAvaibleSeats: tmpupdatedShowing.numberOfAvaibleSeats,
+    });
+
+    this.setState({ updatedShowing: tmpupdatedShowing });
+
+    const tmpCinemaHall = this.state.cinemaHall;
+    tmpCinemaHall.forEach((row, rowId, rowTab) => {
+      if (newOccupiedPlace.row === rowId) {
+        rowTab[rowId].forEach((seat, seatId, seatTab) => {
+          if (newOccupiedPlace.place === seat.id)
+            seatTab[seatId].isActive = true;
+          return seat;
+        });
+      }
+      return row;
+    });
+
+    this.setState({ cinemaHall: tmpCinemaHall });
   }
 
   buyTicket() {
-    console.log(this.state.updatedFilm);
     this.state.updatedFilm.showings.forEach((showing, showId, showTab) => {
       if (showing.showingId === this.state.showingId)
         showTab[showId] = this.state.updatedShowing;
@@ -68,6 +159,7 @@ class BuyTicket extends React.Component {
 
   render() {
     const { cinemaHall, status } = this.state;
+    console.log(cinemaHall);
     if (status === true) return <Redirect to="/" />;
     return (
       <div className="BuyTicket">
@@ -80,13 +172,21 @@ class BuyTicket extends React.Component {
             {cinemaHall.map((row, rowNumber) => (
               <div key={Math.random()} className="row">
                 {row.map((place, placeNumber) => {
-                  return (
+                  return place.id === "X" ? (
                     <button
                       onClick={() => this.choosePlace(rowNumber, place)}
                       key={Math.random()}
-                      className="place"
+                      className="X"
                     >
-                      {placeNumber + 1}
+                      {place.id}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => this.choosePlace(rowNumber, place)}
+                      key={Math.random()}
+                      className={place.isActive ? "clicked" : "place"}
+                    >
+                      {place.id}
                     </button>
                   );
                 })}
