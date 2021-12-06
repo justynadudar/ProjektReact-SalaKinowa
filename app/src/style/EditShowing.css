@@ -1,9 +1,9 @@
-.AddShowing {
+.EditShowing {
     display: flex;
     justify-content: center;
 }
 
-.AddShowing div {
+.EditShowing div {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
@@ -15,20 +15,24 @@
     border-radius: 10px;
 }
 
-.AddShowing h2 {
+.EditShowing div > a {
+    color: black;
+    font-size: 30px;
+}
+
+.EditShowing h2 {
     text-align: center;
     padding: 0 0 30px;
 }
 
-.AddShowing div input {
+.EditShowing div input {
     display: flex;
     margin: 5px 0 10px;
 }
 
-.AddShowing div button {
+.EditShowing div button {
     border-radius: 10px;
     margin: 10px 0;
-    padding: 10px 10px;
     width: 100%;
     background-color: #172263;
     font-size: 18px;
@@ -36,10 +40,11 @@
     color: white;
     text-decoration: none;
     letter-spacing: 1px;
+    padding: 10px 10px;
     text-align: center;
 }
 
-.AddShowing div button:hover {
+.EditShowing div button:hover {
     cursor: pointer;
     background-color: #061152;
 }
