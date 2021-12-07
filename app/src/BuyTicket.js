@@ -37,9 +37,9 @@ class BuyTicket extends React.Component {
         this.setState({
             cinemaHallId: tmpHall.hallId,
         });
-
+        console.log(tmpHall.body);
         tmpShowing.occupiedSeats.forEach((place) => {
-            tmpHall.forEach((row, rowId, rowTab) => {
+            tmpHall.body.forEach((row, rowId, rowTab) => {
                 if (place.row === rowId) {
                     rowTab[rowId].forEach((seat, seatId, seatTab) => {
                         if (place.place === seat.id) seatTab[seatId].id = "X";
@@ -56,7 +56,7 @@ class BuyTicket extends React.Component {
             numberOfSeatsSold: tmpShowing.numberOfSeatsSold,
             numberOfAvaibleSeats: tmpShowing.numberOfAvaibleSeats,
         });
-        this.setState({ cinemaHall: tmpHall });
+        this.setState({ cinemaHall: tmpHall.body });
     }
 
     choosePlace(row1, place1) {
@@ -143,6 +143,7 @@ class BuyTicket extends React.Component {
                     </Link>
                     <h2>Kup bilet / Sala {cinemaHallId}</h2>
                     <div className="cinemaHall">
+                        {console.log(cinemaHall)}
                         {cinemaHall.map((row, rowNumber) => (
                             <div key={Math.random()} className="row">
                                 {row.map((place, placeNumber) => {
@@ -196,6 +197,7 @@ export default BuyTicket;
 
 BuyTicket.propTypes = {
     editShowing: PropTypes.func.isRequired,
+    showShowingsOfThatDay: PropTypes.func.isRequired,
     getData: PropTypes.func.isRequired,
     location: PropTypes.shape({
         pathname: PropTypes.string,
@@ -204,7 +206,7 @@ BuyTicket.propTypes = {
         key: PropTypes.string,
         state: PropTypes.shape({
             modal: PropTypes.bool,
-            todayDate: PropTypes.string.isRequired,
+            todayDate: PropTypes.string,
         }).isRequired,
     }).isRequired,
     films: PropTypes.shape({
@@ -212,5 +214,4 @@ BuyTicket.propTypes = {
         data: PropTypes.array,
         loaded: PropTypes.bool,
     }).isRequired,
-    showShowingsOfThatDay: PropTypes.func.isRequired,
 };
