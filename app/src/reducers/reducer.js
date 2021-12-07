@@ -322,7 +322,6 @@ export default function films(state = initialState, action) {
           ("0" + (today.getMonth() + 1)).slice(-2) +
           "-" +
           ("0" + (today.getDate() + state.counter)).slice(-2);
-
         newState = Object.assign({}, state);
         newState.data.forEach((film) => {
           film.showings = film.showings.filter(
@@ -363,7 +362,13 @@ export default function films(state = initialState, action) {
         );
         newState.loaded = true;
         return newState;
-      } else return state;
+      } else {
+        newState = Object.assign({}, state);
+        newState.data = action.films;
+
+        newState.loaded = true;
+        return newState;
+      }
 
     case "ADD_FILM":
       return Object.assign({}, state, {

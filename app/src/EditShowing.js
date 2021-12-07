@@ -63,7 +63,6 @@ class EditShowing extends React.Component {
     const updatedcinemaHall = this.props.films.cinemaHalls.find(
       (element) => element.hallId === Number(this.state.cinemaHallInput)
     );
-    alert(updatedcinemaHall);
     const editedShowing = {
       showingId: this.state.showingId,
       date: this.state.dateInput,
@@ -83,8 +82,6 @@ class EditShowing extends React.Component {
         this.state.updatedFilm,
         this.props.location.state.filmId
       );
-      this.props.getData();
-      this.props.showShowingsOfThatDay();
       this.setState({ status: true });
     } else {
       const newOldShowing = {
@@ -94,6 +91,7 @@ class EditShowing extends React.Component {
         imgUrl: updatedFilmWithoutThisShow.imgUrl,
         showings: [...updatedFilmWithoutThisShow.showings, editedShowing],
       };
+      console.log(newOldShowing);
 
       this.props.addShowing(newOldShowing, updatedFilmWithoutThisShow.id);
       const tmpElement = this.state.updatedFilm;
@@ -108,8 +106,6 @@ class EditShowing extends React.Component {
         this.state.updatedFilm,
         this.props.location.state.filmId
       );
-      this.props.getData();
-      this.props.showShowingsOfThatDay();
       this.setState({ status: true });
     }
   }
