@@ -67,8 +67,8 @@
 
 .BuyTicket div .cinemaHall .row .clicked {
   padding: 8px 15px;
-  border: 1px solid red;
-  background-color: goldenrod;
+  border: 1px solid goldenrod;
+  background-color: #172263;
   cursor: default;
 }
 

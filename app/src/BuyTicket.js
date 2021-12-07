@@ -8,58 +8,8 @@ class BuyTicket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cinemaHall: [
-        [
-          { id: 1, isActive: false },
-          { id: 2, isActive: false },
-          { id: 3, isActive: false },
-          { id: 4, isActive: false },
-          { id: 5, isActive: false },
-          { id: 6, isActive: false },
-          { id: 7, isActive: false },
-          { id: 8, isActive: false },
-        ],
-        [
-          { id: 1, isActive: false },
-          { id: 2, isActive: false },
-          { id: 3, isActive: false },
-          { id: 4, isActive: false },
-          { id: 5, isActive: false },
-          { id: 6, isActive: false },
-          { id: 7, isActive: false },
-          { id: 8, isActive: false },
-        ],
-        [
-          { id: 1, isActive: false },
-          { id: 2, isActive: false },
-          { id: 3, isActive: false },
-          { id: 4, isActive: false },
-          { id: 5, isActive: false },
-          { id: 6, isActive: false },
-          { id: 7, isActive: false },
-          { id: 8, isActive: false },
-        ],
-        [
-          { id: 1, isActive: false },
-          { id: 2, isActive: false },
-          { id: 3, isActive: false },
-          { id: 4, isActive: false },
-          { id: 5, isActive: false },
-          { id: 6, isActive: false },
-          { id: 7, isActive: false },
-          { id: 8, isActive: false },
-        ],
-        [
-          { id: 1, isActive: false },
-          { id: 2, isActive: false },
-          { id: 3, isActive: false },
-          { id: 4, isActive: false },
-          { id: 5, isActive: false },
-          { id: 6, isActive: false },
-          { id: 7, isActive: false },
-          { id: 8, isActive: false },
-        ],
-      ],
+      cinemaHall: [],
+      cinemaHallId: 0,
       updatedFilm: {},
       updatedShowing: {},
       showingId: Number(this.props.location.state.showingId),
@@ -80,8 +30,16 @@ class BuyTicket extends React.Component {
     const tmpShowing = tmpFilm.showings.find(
       (element) => element.showingId === this.state.showingId
     );
+    const tmpHall = this.props.films.cinemaHalls.find(
+      (element) => element.hallId === tmpShowing.cinemaHall.hallId
+    );
+    this.setState({
+      cinemaHallId: tmpHall.hallId,
+    });
 
-    const tmpCinemaHall = this.state.cinemaHall;
+    const tmpCinemaHall = tmpHall.body;
+
+    console.log(tmpCinemaHall);
     tmpShowing.occupiedSeats.forEach((place) => {
       tmpCinemaHall.forEach((row, rowId, rowTab) => {
         if (place.row === rowId) {
@@ -152,14 +110,13 @@ class BuyTicket extends React.Component {
       this.state.updatedFilm,
       this.props.location.state.filmId
     );
+    this.setState({ status: true });
     this.props.getData();
     this.props.showShowingsOfThatDay();
-    this.setState({ status: true });
   }
 
   render() {
-    const { cinemaHall, status } = this.state;
-    console.log(cinemaHall);
+    const { cinemaHall, status, cinemaHallId } = this.state;
     if (status === true) return <Redirect to="/" />;
     return (
       <div className="BuyTicket">
@@ -167,7 +124,7 @@ class BuyTicket extends React.Component {
           <Link to="/">
             <BsArrowLeftShort />
           </Link>
-          <h2>Kup bilet / Sala 1</h2>
+          <h2>Kup bilet / Sala {cinemaHallId}</h2>
           <div className="cinemaHall">
             {cinemaHall.map((row, rowNumber) => (
               <div key={Math.random()} className="row">
