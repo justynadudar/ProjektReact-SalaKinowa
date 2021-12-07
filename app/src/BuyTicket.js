@@ -37,9 +37,8 @@ class BuyTicket extends React.Component {
       cinemaHallId: tmpHall.hallId,
     });
 
-    console.log(tmpCinemaHall);
     tmpShowing.occupiedSeats.forEach((place) => {
-      tmpCinemaHall.forEach((row, rowId, rowTab) => {
+      tmpHall.forEach((row, rowId, rowTab) => {
         if (place.row === rowId) {
           rowTab[rowId].forEach((seat, seatId, seatTab) => {
             if (place.place === seat.id) seatTab[seatId].id = "X";
@@ -56,7 +55,7 @@ class BuyTicket extends React.Component {
       numberOfSeatsSold: tmpShowing.numberOfSeatsSold,
       numberOfAvaibleSeats: tmpShowing.numberOfAvaibleSeats,
     });
-    this.setState({ cinemaHall: tmpCinemaHall });
+    this.setState({ cinemaHall: tmpHall });
   }
 
   choosePlace(row1, place1) {
