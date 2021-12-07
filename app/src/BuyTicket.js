@@ -9,6 +9,7 @@ class BuyTicket extends React.Component {
     super(props);
     this.state = {
       cinemaHall: [],
+      newOccupiedSeats: [],
       cinemaHallId: 0,
       updatedFilm: {},
       updatedShowing: {},
@@ -61,35 +62,14 @@ class BuyTicket extends React.Component {
     this.setState({ cinemaHall: tmpCinemaHall });
   }
 
-  choosePlace(row, place) {
-    const newOccupiedPlace = {
-      row: row,
-      place: place.id,
-    };
-
-    const tmpupdatedShowing = this.state.updatedShowing;
-
-    tmpupdatedShowing.occupiedSeats = [
-      ...tmpupdatedShowing.occupiedSeats,
-      newOccupiedPlace,
-    ];
-    tmpupdatedShowing.numberOfSeatsSold = this.state.numberOfSeatsSold + 1;
-    tmpupdatedShowing.numberOfAvaibleSeats =
-      this.state.numberOfAvaibleSeats - 1;
-
-    this.setState({
-      numberOfSeatsSold: tmpupdatedShowing.numberOfSeatsSold,
-      numberOfAvaibleSeats: tmpupdatedShowing.numberOfAvaibleSeats,
-    });
-
-    this.setState({ updatedShowing: tmpupdatedShowing });
-
+  choosePlace(row1, place1) {
+    //przypisuje do zmiennej pomocniczej sale kinowe ze stanu, następnie przechodzę po wierszach, następnie miejscach w poszukiwaniu klikniętego miejsca i toggluje jego stan isActive
     const tmpCinemaHall = this.state.cinemaHall;
     tmpCinemaHall.forEach((row, rowId, rowTab) => {
-      if (newOccupiedPlace.row === rowId) {
+      if (row1 === rowId) {
         rowTab[rowId].forEach((seat, seatId, seatTab) => {
-          if (newOccupiedPlace.place === seat.id)
-            seatTab[seatId].isActive = true;
+          if (place1.id === seat.id)
+            seatTab[seatId].isActive = !seatTab[seatId].isActive;
           return seat;
         });
       }
@@ -100,9 +80,26 @@ class BuyTicket extends React.Component {
   }
 
   buyTicket() {
+    const tmpupdatedShowing = this.state.updatedShowing;
+
+    //przechodze po wszystkich zaznaczonych miejscach i dodaje je w zajętych miejscach danego seansu
+    const tmpCinemaHall = this.state.cinemaHall;
+    tmpCinemaHall.forEach((row, rowId, rowTab) => {
+      rowTab[rowId].forEach((seat, seatId, seatTab) => {
+        if (seat.isActive === true) {
+          tmpupdatedShowing.occupiedSeats = [
+            ...tmpupdatedShowing.occupiedSeats,
+            { row: rowId, place: seat.id },
+          ];
+        }
+        return seat;
+      });
+      return row;
+    });
+
     this.state.updatedFilm.showings.forEach((showing, showId, showTab) => {
       if (showing.showingId === this.state.showingId)
-        showTab[showId] = this.state.updatedShowing;
+        showTab[showId] = tmpupdatedShowing;
       return showing;
     });
 

@@ -64,6 +64,7 @@ class AddShowing extends React.Component {
           cinemaHall: {
             hallId: Number(this.state.cinemaHallInput),
             capacity: cinemaHall.capacity,
+            body: cinemaHall.body,
           },
           numberOfSeatsSold: 0,
           numberOfAvaibleSeats: cinemaHall.capacity,
