@@ -3,7 +3,7 @@
     justify-content: center;
 }
 
-.AddShowing div {
+.AddShowing > div {
     margin: 100px 0;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,11 @@
     text-decoration: none;
     letter-spacing: 1px;
     text-align: center;
+}
+
+.AddShowing > div > a {
+    color: black;
+    font-size: 30px;
 }
 
 .AddShowing div button:hover {
