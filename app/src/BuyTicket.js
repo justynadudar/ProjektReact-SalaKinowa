@@ -31,14 +31,11 @@ class BuyTicket extends React.Component {
     const tmpShowing = tmpFilm.showings.find(
       (element) => element.showingId === this.state.showingId
     );
-    const tmpHall = this.props.films.cinemaHalls.find(
-      (element) => element.hallId === tmpShowing.cinemaHall.hallId
-    );
+    const tmpHall = tmpShowing.cinemaHall;
+
     this.setState({
       cinemaHallId: tmpHall.hallId,
     });
-
-    const tmpCinemaHall = tmpHall.body;
 
     console.log(tmpCinemaHall);
     tmpShowing.occupiedSeats.forEach((place) => {
