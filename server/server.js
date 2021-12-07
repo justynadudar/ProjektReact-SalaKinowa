@@ -14,10 +14,6 @@ app.use(
     })
 );
 
-app.get("/", (req, res) => {
-    res.send("Server with orders");
-});
-
 app.get("/orders", (req, res) => {
     fs.readFile("./orders.json", "utf8", (err, ordersJson) => {
         if (err) {
