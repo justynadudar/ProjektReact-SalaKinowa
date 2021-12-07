@@ -68,13 +68,14 @@ class AddShowing extends React.Component {
             invalidDate: false,
             invalidTime: false,
         });
-        let invalidFilmName = false;
+
+        let invalidFilmName = true;
         let today = new Date();
         let stringTodayTime =
             ("0" + today.getHours()).slice(-2) + ":" + today.getMinutes();
 
         this.props.films.data.forEach((film) => {
-            if (textInput !== film.title) invalidFilmName = true;
+            if (textInput === film.title) invalidFilmName = false;
         });
 
         if (textInput.length === 0) {

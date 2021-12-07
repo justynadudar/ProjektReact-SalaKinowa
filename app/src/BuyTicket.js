@@ -3,7 +3,7 @@ import { Link, Redirect } from "react-router-dom";
 import "./style/BuyTicket.css";
 import { BsArrowLeftShort } from "react-icons/bs";
 import Error from "./Error";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class BuyTicket extends React.Component {
     constructor(props) {
@@ -194,7 +194,23 @@ class BuyTicket extends React.Component {
 
 export default BuyTicket;
 
-// BuyTicket.propTypes = {
-//     addFilm: PropTypes.func.isRequired,
-//     getData: PropTypes.func.isRequired,
-// };
+BuyTicket.propTypes = {
+    editShowing: PropTypes.func.isRequired,
+    getData: PropTypes.func.isRequired,
+    location: PropTypes.shape({
+        pathname: PropTypes.string,
+        search: PropTypes.string,
+        hash: PropTypes.string,
+        key: PropTypes.string,
+        state: PropTypes.shape({
+            modal: PropTypes.bool,
+            todayDate: PropTypes.string.isRequired,
+        }).isRequired,
+    }).isRequired,
+    films: PropTypes.shape({
+        error: PropTypes.string,
+        data: PropTypes.array,
+        loaded: PropTypes.bool,
+    }).isRequired,
+    showShowingsOfThatDay: PropTypes.func.isRequired,
+};
