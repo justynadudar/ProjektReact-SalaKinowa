@@ -1,1 +1,281 @@
-[{"id":54801,"title":"Where is Nemo !?","duration":"123","imgUrl":"https://cdn.gracza.pl/galeria/gry13/257906921d.jpg","showings":[{"showingId":13704,"date":"2021-12-07","hour":"06:11","occupiedSeats":[{"row":4,"place":3},{"row":4,"place":4}],"cinemaHall":{"hallId":1,"capacity":40,"body":[[{"id":1,"isActive":false},{"id":2,"isActive":false},{"id":3,"isActive":false},{"id":4,"isActive":false},{"id":5,"isActive":false},{"id":6,"isActive":false},{"id":7,"isActive":false},{"id":8,"isActive":false}],[{"id":1,"isActive":false},{"id":2,"isActive":false},{"id":3,"isActive":false},{"id":4,"isActive":false},{"id":5,"isActive":false},{"id":6,"isActive":false},{"id":7,"isActive":false},{"id":8,"isActive":false}],[{"id":1,"isActive":false},{"id":2,"isActive":false},{"id":3,"isActive":false},{"id":4,"isActive":false},{"id":5,"isActive":false},{"id":6,"isActive":false},{"id":7,"isActive":false},{"id":8,"isActive":false}],[{"id":1,"isActive":false},{"id":2,"isActive":false},{"id":3,"isActive":false},{"id":4,"isActive":false},{"id":5,"isActive":false},{"id":6,"isActive":false},{"id":7,"isActive":false},{"id":8,"isActive":false}],[{"id":1,"isActive":false},{"id":2,"isActive":false},{"id":3,"isActive":false},{"id":4,"isActive":false},{"id":5,"isActive":false},{"id":6,"isActive":false},{"id":7,"isActive":false},{"id":8,"isActive":false}]]},"numberOfSeatsSold":0,"numberOfAvaibleSeats":40}]}]
+[
+    {
+        "id": 54801,
+        "title": "Where is Nemo !?",
+        "duration": "123",
+        "imgUrl": "https://cdn.gracza.pl/galeria/gry13/257906921d.jpg",
+        "showings": [
+            {
+                "showingId": 58118,
+                "date": "2021-12-08",
+                "hour": "05:00",
+                "occupiedSeats": [
+                    { "row": 0, "place": 1 },
+                    { "row": 4, "place": 8 }
+                ],
+                "cinemaHall": {
+                    "hallId": 2,
+                    "capacity": 40,
+                    "body": [
+                        [
+                            { "id": 1, "isActive": true },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": true }
+                        ]
+                    ]
+                },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 40
+            },
+            {
+                "showingId": 581258,
+                "date": "2021-12-08",
+                "hour": "03:00",
+                "occupiedSeats": [
+                    { "row": 0, "place": 1 },
+                    { "row": 0, "place": 2 },
+                    { "row": 0, "place": 3 },
+                    { "row": 4, "place": 8 }
+                ],
+                "cinemaHall": {
+                    "hallId": 2,
+                    "capacity": 40,
+                    "body": [
+                        [
+                            { "id": 1, "isActive": true },
+                            { "id": 2, "isActive": true },
+                            { "id": 3, "isActive": true },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": true }
+                        ]
+                    ]
+                },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 40
+            },
+            {
+                "showingId": 2561,
+                "date": "2021-12-09",
+                "hour": "05:05",
+                "occupiedSeats": [],
+                "cinemaHall": {
+                    "hallId": 2,
+                    "capacity": 40,
+                    "body": [
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ]
+                    ]
+                },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 40
+            },
+            {
+                "showingId": 86591,
+                "date": "2021-12-08",
+                "hour": "05:20",
+                "occupiedSeats": [],
+                "cinemaHall": {
+                    "hallId": 1,
+                    "capacity": 40,
+                    "body": [
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ],
+                        [
+                            { "id": 1, "isActive": false },
+                            { "id": 2, "isActive": false },
+                            { "id": 3, "isActive": false },
+                            { "id": 4, "isActive": false },
+                            { "id": 5, "isActive": false },
+                            { "id": 6, "isActive": false },
+                            { "id": 7, "isActive": false },
+                            { "id": 8, "isActive": false }
+                        ]
+                    ]
+                },
+                "numberOfSeatsSold": 0,
+                "numberOfAvaibleSeats": 40
+            }
+        ]
+    },
+    {
+        "id": 13737,
+        "title": "Szybcy i wściekli",
+        "duration": "210",
+        "imgUrl": "https://image.posterlounge.pl/images/l/1898865.jpg",
+        "showings": []
+    }
+]

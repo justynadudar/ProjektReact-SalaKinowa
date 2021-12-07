@@ -68,7 +68,6 @@ class AddShowing extends React.Component {
             invalidDate: false,
             invalidTime: false,
         });
-
         let invalidFilmName = false;
         let today = new Date();
         let stringTodayTime =
@@ -137,7 +136,58 @@ class AddShowing extends React.Component {
                         cinemaHall: {
                             hallId: Number(this.state.cinemaHallInput),
                             capacity: cinemaHall.capacity,
-                            body: cinemaHall.body,
+                            body: [
+                                [
+                                    { id: 1, isActive: false },
+                                    { id: 2, isActive: false },
+                                    { id: 3, isActive: false },
+                                    { id: 4, isActive: false },
+                                    { id: 5, isActive: false },
+                                    { id: 6, isActive: false },
+                                    { id: 7, isActive: false },
+                                    { id: 8, isActive: false },
+                                ],
+                                [
+                                    { id: 1, isActive: false },
+                                    { id: 2, isActive: false },
+                                    { id: 3, isActive: false },
+                                    { id: 4, isActive: false },
+                                    { id: 5, isActive: false },
+                                    { id: 6, isActive: false },
+                                    { id: 7, isActive: false },
+                                    { id: 8, isActive: false },
+                                ],
+                                [
+                                    { id: 1, isActive: false },
+                                    { id: 2, isActive: false },
+                                    { id: 3, isActive: false },
+                                    { id: 4, isActive: false },
+                                    { id: 5, isActive: false },
+                                    { id: 6, isActive: false },
+                                    { id: 7, isActive: false },
+                                    { id: 8, isActive: false },
+                                ],
+                                [
+                                    { id: 1, isActive: false },
+                                    { id: 2, isActive: false },
+                                    { id: 3, isActive: false },
+                                    { id: 4, isActive: false },
+                                    { id: 5, isActive: false },
+                                    { id: 6, isActive: false },
+                                    { id: 7, isActive: false },
+                                    { id: 8, isActive: false },
+                                ],
+                                [
+                                    { id: 1, isActive: false },
+                                    { id: 2, isActive: false },
+                                    { id: 3, isActive: false },
+                                    { id: 4, isActive: false },
+                                    { id: 5, isActive: false },
+                                    { id: 6, isActive: false },
+                                    { id: 7, isActive: false },
+                                    { id: 8, isActive: false },
+                                ],
+                            ],
                         },
                         numberOfSeatsSold: 0,
                         numberOfAvaibleSeats: cinemaHall.capacity,

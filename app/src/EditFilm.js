@@ -7,10 +7,17 @@ import PropTypes from "prop-types";
 
 function EditFilm({ editFilm, id, films, getData }) {
   let history = useHistory();
+  getData();
 
-  let [textInput, setTextInput] = useState("");
-  let [urlInput, setUrlInput] = useState("");
-  let [numberInput, setNumberInput] = useState("");
+  let [textInput, setTextInput] = useState(
+    films.data.find((element) => element.id === id).title
+  );
+  let [urlInput, setUrlInput] = useState(
+    films.data.find((element) => element.id === id).imgUrl
+  );
+  let [numberInput, setNumberInput] = useState(
+    films.data.find((element) => element.id === id).duration
+  );
 
   let [emptyTitleField, setEmptyTitleField] = useState(false);
   let [emptyDurationField, setEmptyDurationField] = useState(false);
