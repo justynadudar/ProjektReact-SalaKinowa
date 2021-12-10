@@ -81,6 +81,7 @@ class BuyTicket extends React.Component {
     this.setState({ chooseError: false });
     let counter = 0;
 
+    //counter do walidacji
     const tmpCinemaHall = this.state.cinemaHall;
     tmpCinemaHall.forEach((row, rowId, rowTab) => {
       rowTab[rowId].forEach((seat, seatId, seatTab) => {

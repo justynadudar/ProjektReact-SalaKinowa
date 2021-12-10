@@ -299,7 +299,6 @@ export default function films(state = initialState, action) {
     case "SHOW_ALL":
       newState = Object.assign({}, state);
       newState.data = action.films;
-
       newState.loaded = true;
       return newState;
 
@@ -381,7 +380,7 @@ export default function films(state = initialState, action) {
         if (film.id === action.editedFilm.id) tab[index] = action.editedFilm;
         return film;
       });
-      newState.loaded = true;
+      newState.loaded = false;
       return newState;
 
     case "DELETE_FILM":
@@ -396,7 +395,7 @@ export default function films(state = initialState, action) {
         if (el.id === action.id) tab[index] = action.newShowing;
         return el;
       });
-      newState.loaded = true;
+      newState.loaded = false;
       return newState;
 
     case "EDIT_SHOWING":
@@ -405,7 +404,7 @@ export default function films(state = initialState, action) {
         if (film.id === action.updatedFilm.id) tab[index] = action.updatedFilm;
         return film;
       });
-      newState.loaded = true;
+      newState.loaded = false;
       return newState;
 
     default:

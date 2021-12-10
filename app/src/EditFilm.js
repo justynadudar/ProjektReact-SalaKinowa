@@ -43,7 +43,6 @@ function EditFilm({ editFilm, id, films, getData }) {
       };
 
       editFilm(editedFilm, id);
-      getData();
 
       setTextInput("");
       setNumberInput("");
