@@ -1,5 +1,23 @@
+# ProjektReact-SalaKinowa
 ProjektReact-SalaKinowa is a web application for cinema management.
 
+## Table of contents
+* [Technologies](#technologies)
+* [Features](#features)
+* [Examples of use](#examples-of-use)
+
+## Technologies:
+- CSS
+- JavaScript
+- React
+- Node.js
+
+## Features:
+- Adding/modifying/deleting films
+- Adding/modifying/deleting screenings
+- Buying tickets for a selected screening with the possibility of choosing seats
+
+## Examples of use
 We have three main tab: Kasa, Seanse, Filmy.
 In the Filmy tab we can see all the available movies:
 ![image](https://user-images.githubusercontent.com/62484042/166706092-0023df36-c52b-4709-9877-957d4d1061fd.png) 
